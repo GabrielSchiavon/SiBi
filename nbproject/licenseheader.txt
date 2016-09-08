@@ -1,0 +1,7 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Trabalhodesenvolvido para disciplina de ISS - 2016
+<#if licenseLast??>
+${licenseLast}
+</#if>
