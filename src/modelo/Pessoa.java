@@ -9,6 +9,7 @@ import java.util.Date;
  *
  * @author schiavon
  */
+
 public class Pessoa {
     private int id;
     private String nome;
@@ -22,6 +23,18 @@ public class Pessoa {
     private String complemento;
     private String email;
     private String senha;
+    
+    public enum Sexo{
+        FEMININO(0), MASCULINO(1);
+        
+        private int sexo;
+
+        Sexo(int sexo){
+           this.sexo = sexo;
+        }
+
+        public int getSexo(){return this.sexo;}
+    }
 
     /**
      * @return the id
