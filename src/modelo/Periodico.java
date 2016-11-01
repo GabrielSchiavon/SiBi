@@ -3,15 +3,33 @@
  */
 package modelo;
 
+import dao.MaterialBibliograficoDAO;
+import java.util.Calendar;
+import javax.persistence.*;
+
 /**
  *
  * @author schiavon
  */
+@Entity
+@Table(name = "periodico")
 public class Periodico extends Material{
+    @Column(nullable = false)
     private String assunto;
+    @Column(nullable = false)
     private int issn;
+    @Column(nullable = false)
     private String doi;
 
+    public Periodico(){}
+    public Periodico(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
+            String assunto, int issn, String doi){
+        super(nome, qtd, dataCadastro, dataCriacao);
+        this.assunto = assunto;
+        this.issn = issn;
+        this.doi = doi;
+    }
+    
     public String getAssunto() {
         return assunto;
     }
@@ -43,5 +61,14 @@ public class Periodico extends Material{
     @Override
     public boolean possoSerLocado(){
         return true;
+    }
+    
+    public void cadastrarPeriodico(Periodico periodico) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.inserirPeriodico(periodico);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } 
     }
 }

@@ -3,18 +3,43 @@
  */
 package modelo;
 
+import dao.MaterialBibliograficoDAO;
+import java.util.Calendar;
+import javax.persistence.*;
+
 /**
  *
  * @author schiavon
  */
+@Entity
+@Table(name = "livro")
 public class Livro extends Material{
+    @Column(nullable = false)
     private int isbn;
+    @Column(nullable = false)
     private String genero;
+    @Column(nullable = false)
     private String autor;
+    @Column(nullable = false)
     private String editora;
+    @Column(nullable = false)
     private boolean especial;
+    @Column(nullable = false)
     private int quantLocados;
 
+    public Livro(){}
+    
+    public Livro(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
+            int isbn, String genero, String autor, String editora, boolean especial, int qtdLocados){
+        super(nome, qtd, dataCadastro, dataCriacao);
+        this.isbn = isbn;
+        this.genero = genero;
+        this.autor = autor;
+        this.editora = editora;
+        this.especial = especial;
+        this.quantLocados = qtdLocados;
+    }
+    
     public int getIsbn() {
         return isbn;
     }
@@ -65,6 +90,15 @@ public class Livro extends Material{
     
     public String listarDados(){
         return "";
+    }
+    
+    public void cadastrarLivro(Livro livro){
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.inserirLivro(livro);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }                
     }
     
     @Override

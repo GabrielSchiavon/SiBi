@@ -3,19 +3,42 @@
  */
 package modelo;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.util.Calendar;
+import javax.persistence.*;
 
 /**
  *
  * @author schiavon
  */
-public class Material {
-    private int id;
-    private String nome;
-    private int quantidadeInventario;
-    private Date dataCadastro;
-    private Date dataCriacao;
 
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Material implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private int id;
+    @Column(nullable = false)
+    private String nome;
+    @Column(nullable = false)
+    private int quantidadeInventario;
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Calendar dataCadastro;
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Calendar dataCriacao;
+
+    public Material(){}
+    
+    public Material(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao){
+        this.nome = nome;
+        this.quantidadeInventario = qtd;
+        this.dataCadastro = dataCadastro;
+        this.dataCriacao = dataCriacao;
+    }
+    
     public int getId() {
         return id;
     }
@@ -40,19 +63,19 @@ public class Material {
         this.quantidadeInventario = quantidadeInventario;
     }
 
-    public Date getDataCadastro() {
+    public Calendar getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(Calendar dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public Date getDataCriacao() {
+    public Calendar getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(Date dataCriacao) {
+    public void setDataCriacao(Calendar dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
     

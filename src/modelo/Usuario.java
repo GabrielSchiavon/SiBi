@@ -7,7 +7,7 @@ package modelo;
  *
  * @author schiavon
  */
-public class Usuario extends Pessoa{
+public class Usuario extends Pessoa{ 
     private Pessoa pessoa;
     private boolean status;
 

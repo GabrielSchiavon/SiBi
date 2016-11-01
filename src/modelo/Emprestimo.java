@@ -3,16 +3,28 @@
  */
 package modelo;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
 
 /**
  *
  * @author schiavon
  */
-public class Emprestimo {
+@Entity
+@Table(name = "emprestimo")
+public class Emprestimo implements Serializable{
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date dataEmprestimo;
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date dataDevolucao;
+    @Column(nullable = false)
     private boolean estado;
 
     public int getId() {

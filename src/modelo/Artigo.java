@@ -3,18 +3,37 @@
  */
 package modelo;
 
-import java.util.ArrayList;
+import dao.MaterialBibliograficoDAO;
+import java.util.Calendar;
+import javax.persistence.*;
 
 /**
  *
  * @author schiavon
  */
+@Entity
+@Table(name = "artigo")
 public class Artigo extends Material{
+    
+    @Column(nullable = false)
     private String categoria;
+    @Column(nullable = false)
     private String autor;
+    @Column(nullable = false)
     private String resumo;
-    private ArrayList tags;
+    @Column(nullable = false)
+    private String tags;
 
+    public Artigo(){}
+    public Artigo(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
+            String autor, String categoria, String resumo, String tags){
+        super(nome, qtd, dataCadastro, dataCriacao);
+        this.categoria = categoria;
+        this.autor = autor;
+        this.resumo = resumo;
+        this.tags = tags;
+    }
+    
     public String getCategoria() {
         return categoria;
     }
@@ -39,11 +58,11 @@ public class Artigo extends Material{
         this.resumo = resumo;
     }
 
-    public ArrayList getTags() {
+    public String getTags() {
         return tags;
     }
 
-    public void setTags(ArrayList tags) {
+    public void setTags(String tags) {
         this.tags = tags;
     }
     
@@ -54,5 +73,14 @@ public class Artigo extends Material{
     @Override
     public boolean possoSerLocado(){
         return true;
+    }
+
+    public void cadastrarArtigo(Artigo artigo) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.inserirArtigo(artigo);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } 
     }
 }
