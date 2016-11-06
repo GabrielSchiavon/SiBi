@@ -3,10 +3,14 @@
  */
 package dao;
 
+import java.util.List;
 import org.hibernate.Transaction;
 import modelo.*;
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 /**
  *
  * @author schiavon
@@ -64,5 +68,54 @@ public class MaterialBibliograficoDAO {
         
         session.flush();
         session.close();
+    }
+    
+    public void editarLivro(Livro livro) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        session.beginTransaction();
+        session.update(livro);
+        session.getTransaction().commit();
+        
+        session.flush();
+        session.close();
+    }
+    
+    public List consultarMaterial(int valor, String nome){
+        Criteria crit;
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        switch (valor){
+            case 0:
+                crit = session.createCriteria(Livro.class);
+                crit.add(Restrictions.eq("nome", nome));
+                List<Livro> resultadoLivro = crit.list();
+                return resultadoLivro;
+                
+            case 1:
+                crit = session.createCriteria(Artigo.class);
+                crit.add(Restrictions.eq("nome", nome));
+                List<Artigo> resultadoArtigo = crit.list();
+                return resultadoArtigo;
+                
+            case 2:
+                crit = session.createCriteria(Periodico.class);
+                crit.add(Restrictions.eq("nome", nome));
+                List<Periodico> resultadoPeriodico = crit.list();
+                return resultadoPeriodico;
+                
+            case 3:
+                crit = session.createCriteria(Video.class);
+                crit.add(Restrictions.eq("nome", nome));
+                List<Video> resultadoVideo = crit.list();
+                return resultadoVideo;
+        }
+        
+        
+        session.flush();
+        session.close();
+        return null;
     }
 }

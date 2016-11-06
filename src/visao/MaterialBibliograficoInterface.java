@@ -39,6 +39,11 @@ public class MaterialBibliograficoInterface extends javax.swing.JFrame {
         });
 
         jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
 
         jButtonExcluir.setText("Excluir");
 
@@ -73,6 +78,11 @@ public class MaterialBibliograficoInterface extends javax.swing.JFrame {
         MaterialBibliograficoCadastro cadastroMB = new MaterialBibliograficoCadastro();
         cadastroMB.setVisible(true);
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        MaterialBibliograficoProcura procuraMB = new MaterialBibliograficoProcura();
+        procuraMB.setVisible(true);
+    }//GEN-LAST:event_jButtonEditarActionPerformed
 
     /**
      * @param args the command line arguments

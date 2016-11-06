@@ -5,6 +5,7 @@ package modelo;
 
 import dao.MaterialBibliograficoDAO;
 import java.util.Calendar;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -31,6 +32,7 @@ public class Livro extends Material{
     
     public Livro(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
             int isbn, String genero, String autor, String editora, boolean especial, int qtdLocados){
+        
         super(nome, qtd, dataCadastro, dataCriacao);
         this.isbn = isbn;
         this.genero = genero;
@@ -99,6 +101,28 @@ public class Livro extends Material{
         } catch (Exception ex){
             ex.printStackTrace();
         }                
+    }
+    
+    public List consultarMaterial(int valor, String nome){
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        List resultado = null;
+        
+        try {
+            resultado = dao.consultarMaterial(valor, nome);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        return resultado;
+    }
+    
+    public void editarLivro(Livro livro){
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.editarLivro(livro);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }    
     }
     
     @Override

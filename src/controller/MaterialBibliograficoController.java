@@ -3,6 +3,7 @@
  */
 package controller;
 
+import java.util.List;
 import modelo.*;
 
 /**
@@ -47,5 +48,25 @@ public class MaterialBibliograficoController {
     
     public void cadastrarVideo(Video video){
         video.cadastrarVideo(video);
+    }
+    
+    public List consultarMaterial(int valor, String nome, Livro livro){
+        return livro.consultarMaterial(valor, nome);
+    }
+    
+    public List consultarMaterial(int valor, String nome, Artigo artigo){
+        return artigo.consultarMaterial(valor, nome);
+    }
+    
+    public List consultarMaterial(int valor, String nome, Periodico periodico){
+        return periodico.consultarMaterial(valor, nome);
+    }
+    
+    public List consultarMaterial(int valor, String nome, Video video){
+        return video.consultarMaterial(valor, nome);
+    }
+    
+    public void editarMaterial(Livro livro) {
+        livro.editarLivro(livro);
     }
 }

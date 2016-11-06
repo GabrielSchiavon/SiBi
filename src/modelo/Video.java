@@ -5,6 +5,7 @@ package modelo;
 
 import dao.MaterialBibliograficoDAO;
 import java.util.Calendar;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -92,5 +93,18 @@ public class Video extends Material{
         } catch (Exception ex){
             ex.printStackTrace();
         } 
+    }
+    
+    public List consultarMaterial(int valor, String nome){
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        List resultado = null;
+        
+        try {
+            resultado = dao.consultarMaterial(valor, nome);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        return resultado;
     }
 }
