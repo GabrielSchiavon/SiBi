@@ -7,7 +7,6 @@ import java.util.List;
 import org.hibernate.Transaction;
 import modelo.*;
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -76,6 +75,42 @@ public class MaterialBibliograficoDAO {
         
         session.beginTransaction();
         session.update(livro);
+        session.getTransaction().commit();
+        
+        session.flush();
+        session.close();
+    }
+    
+    public void editarArtigo(Artigo artigo) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        session.beginTransaction();
+        session.update(artigo);
+        session.getTransaction().commit();
+        
+        session.flush();
+        session.close();
+    }
+    
+    public void editarPeriodico(Periodico periodico) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        session.beginTransaction();
+        session.update(periodico);
+        session.getTransaction().commit();
+        
+        session.flush();
+        session.close();
+    }
+    
+    public void editarVideo(Video video) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        session.beginTransaction();
+        session.update(video);
         session.getTransaction().commit();
         
         session.flush();

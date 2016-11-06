@@ -10,18 +10,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.Livro;
+import modelo.Artigo;
+import modelo.Video;
 
 /**
  *
  * @author Gabriel
  */
-public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
+public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
 
     /**
-     * Creates new form MaterialBibliograficoEditaLivro
+     * Creates new form EditaVideo
      */
-    public MaterialBibliograficoEditaLivro() {
+    public MaterialBibliograficoEditaVideo() {
         initComponents();
     }
 
@@ -34,40 +35,33 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jTextFieldID = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldQuantidade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jTextFieldData = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldAutor = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldGenero = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldISBN = new javax.swing.JTextField();
+        jTextFieldSinopse = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldEditora = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jRadioButtonLivroNao = new javax.swing.JRadioButton();
-        jRadioButtonLivroSim = new javax.swing.JRadioButton();
+        jTextFieldDuracao = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextFieldData = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Editar Livro");
-        setPreferredSize(new java.awt.Dimension(375, 450));
-        setResizable(false);
+        setTitle("Edita Video");
 
-        jLabel1.setText("Nome:");
+        jLabel1.setText("ID:");
 
-        jLabel2.setText("ID:");
+        jTextFieldID.setEnabled(false);
 
-        jTextFieldID.setEditable(false);
+        jLabel2.setText("Nome:");
 
         jLabel3.setText("Quantidade:");
 
@@ -75,42 +69,11 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
 
         jLabel5.setText("Autor:");
 
-        jLabel6.setText("Gênero:");
+        jLabel6.setText("Genero:");
 
-        jLabel7.setText("ISBN:");
+        jLabel7.setText("Sinopse:");
 
-        jLabel8.setText("Editora:");
-
-        jLabel9.setText("Especial:");
-
-        buttonGroup2.add(jRadioButtonLivroNao);
-        jRadioButtonLivroNao.setText("Não");
-
-        buttonGroup2.add(jRadioButtonLivroSim);
-        jRadioButtonLivroSim.setText("Sim");
-        jRadioButtonLivroSim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonLivroSimActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRadioButtonLivroNao)
-                .addGap(40, 40, 40)
-                .addComponent(jRadioButtonLivroSim)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jRadioButtonLivroNao)
-                .addComponent(jRadioButtonLivroSim))
-        );
+        jLabel8.setText("Duração(min):");
 
         jButton1.setText("Salvar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,58 +97,61 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(31, 31, 31)
-                        .addComponent(jTextFieldNome))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldData))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldGenero))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(12, 12, 12)
+                        .addComponent(jTextFieldAutor))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldSinopse))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
+                                .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldData, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldAutor)
-                            .addComponent(jTextFieldGenero)
-                            .addComponent(jTextFieldISBN)
-                            .addComponent(jTextFieldEditora)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
+                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
                     .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,69 +166,59 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jTextFieldGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextFieldISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldSinopse, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextFieldEditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                    .addComponent(jTextFieldDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                .addGap(37, 37, 37))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButtonLivroSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonLivroSimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonLivroSimActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Calendar dataCadastro = Calendar.getInstance();
         Calendar dataCriacao = Calendar.getInstance();
         DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Video video = new Video();
+        MaterialBibliograficoController controller = new MaterialBibliograficoController();
+        
         try {
             dataCadastro.setTime(formato.parse(jTextFieldData.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Livro livro = new Livro();
         
-        livro.setAutor(jTextFieldAutor.getText());
-        livro.setNome(jTextFieldNome.getText());
-        livro.setId(Integer.parseInt(jTextFieldID.getText()));
-        livro.setEditora(jTextFieldEditora.getText());
-        livro.setGenero(jTextFieldGenero.getText());
-        livro.setIsbn(Integer.parseInt(jTextFieldISBN.getText()));
-        livro.setQuantLocados(0);
-        livro.setQuantidadeInventario(Integer.parseInt(jTextFieldQuantidade.getText()));
-        livro.setDataCadastro(dataCadastro);
-        livro.setDataCriacao(dataCriacao);
-        MaterialBibliograficoController controller = new MaterialBibliograficoController();
+        video.setAutor(jTextFieldAutor.getText());
+        video.setGenero(jTextFieldGenero.getText());
+        video.setDataCadastro(dataCadastro);
+        video.setDataCriacao(dataCriacao);
+        video.setId(Integer.parseInt(jTextFieldID.getText()));
+        video.setNome(jTextFieldNome.getText());
+        video.setQuantidadeInventario(Integer.parseInt(jTextFieldQuantidade.getText()));
+        video.setSinopse(jTextFieldSinopse.getText());
+        video.setDuracao(Double.parseDouble(jTextFieldDuracao.getText()));
         
-        try{
-            controller.editarLivro(livro);
+        try {
+            controller.editarVideo(video);
             dispose ();
             ConfirmaEdicao confirma = new ConfirmaEdicao();
             confirma.setVisible(true);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,26 +237,26 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MaterialBibliograficoEditaLivro().setVisible(true);
+                new MaterialBibliograficoEditaVideo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -311,36 +267,26 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButtonLivroNao;
-    private javax.swing.JRadioButton jRadioButtonLivroSim;
     private javax.swing.JTextField jTextFieldAutor;
     private javax.swing.JTextField jTextFieldData;
-    private javax.swing.JTextField jTextFieldEditora;
+    private javax.swing.JTextField jTextFieldDuracao;
     private javax.swing.JTextField jTextFieldGenero;
     private javax.swing.JTextField jTextFieldID;
-    private javax.swing.JTextField jTextFieldISBN;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldQuantidade;
+    private javax.swing.JTextField jTextFieldSinopse;
     // End of variables declaration//GEN-END:variables
-
-    void setCampos(Livro livro) {
+    
+    void setCampos(Video video){
         DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         
-        jTextFieldID.setText(Integer.toString(livro.getId()));
-        jTextFieldNome.setText(livro.getNome());
-        jTextFieldQuantidade.setText(Integer.toString(livro.getQuantidadeInventario()));
-        jTextFieldISBN.setText(Integer.toString(livro.getIsbn()));
-        jTextFieldAutor.setText(livro.getAutor());
-        jTextFieldEditora.setText(livro.getEditora());
-        jTextFieldGenero.setText(livro.getGenero());
-        jTextFieldData.setText(formato.format(livro.getDataCriacao().getTime()));
-        
-        if (livro.isEspecial()){
-            jRadioButtonLivroSim.setSelected(true);
-        } else {
-            jRadioButtonLivroNao.setSelected(true);
-        }
+        jTextFieldID.setText(Integer.toString(video.getId()));
+        jTextFieldNome.setText(video.getNome());
+        jTextFieldQuantidade.setText(Integer.toString(video.getQuantidadeInventario()));
+        jTextFieldSinopse.setText(video.getSinopse());
+        jTextFieldAutor.setText(video.getAutor());
+        jTextFieldData.setText(formato.format(video.getDataCriacao().getTime()));
+        jTextFieldDuracao.setText(Double.toString(video.getDuracao()));
+        jTextFieldGenero.setText(video.getGenero());
     }
 }

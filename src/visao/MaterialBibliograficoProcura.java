@@ -137,31 +137,74 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
             switch (valor) {
                 case 0:
                     Livro livro = new Livro();        
-                    List<Livro> lista = controller.consultarMaterial(valor, jTextFieldNome.getText(), livro);
-                    if (lista.isEmpty()) {
+                    List<Livro> listaLivro = controller.consultarMaterial(valor, jTextFieldNome.getText(), livro);
+                    if (listaLivro.isEmpty()) {
                         NaoEncontrado naoEncontrado = new NaoEncontrado();
                         naoEncontrado.setVisible(true);
                     } else {
-                        if (lista.size() == 1){
+                        if (listaLivro.size() == 1){
                             MaterialBibliograficoEditaLivro editaLivro = new MaterialBibliograficoEditaLivro();
-                            editaLivro.setCampos(lista.get(0));
+                            editaLivro.setCampos(listaLivro.get(0));
                             editaLivro.setVisible(true);
                         } else {
                             
                         }
                     }
                     break;
+                    
                 case 1:
                     Artigo artigo = new Artigo();
-                    controller.consultarMaterial(valor, jTextFieldNome.getText(), artigo);
+                    List<Artigo> listaArtigo = controller.consultarMaterial(valor, jTextFieldNome.getText(), artigo);
+                    if(listaArtigo.isEmpty()) {
+                        NaoEncontrado naoEncontrado = new NaoEncontrado();
+                        naoEncontrado.setVisible(true);
+                    } else {
+                        if (listaArtigo.size() == 1){
+                            MaterialBibliograficoEditaArtigo editaArtigo = new MaterialBibliograficoEditaArtigo();
+                            editaArtigo.setCampos(listaArtigo.get(0));
+                            editaArtigo.setVisible(true);
+                        } else {
+                            
+                        }
+                    }
+                    
                     break;
+                    
                 case 2:
                     Periodico periodico = new Periodico();
-                    controller.consultarMaterial(valor, jTextFieldNome.getText(), periodico);
+                    List<Periodico> listaPeriodico = controller.consultarMaterial(valor, jTextFieldNome.getText(), periodico);
+                    
+                    if(listaPeriodico.isEmpty()) {
+                        NaoEncontrado naoEncontrado = new NaoEncontrado();
+                        naoEncontrado.setVisible(true);
+                    } else {
+                        if (listaPeriodico.size() == 1){
+                            MaterialBibliograficoEditaPeriodico editaPeriodico = new MaterialBibliograficoEditaPeriodico();
+                            editaPeriodico.setCampos(listaPeriodico.get(0));
+                            editaPeriodico.setVisible(true);
+                        } else {
+                            
+                        }
+                    }
+                    
                     break;
+                    
                 case 3:
                     Video video = new Video();
-                    controller.consultarMaterial(valor, jTextFieldNome.getText(), video);
+                    List<Video> listaVideo = controller.consultarMaterial(valor, jTextFieldNome.getText(), video);
+                    
+                    if(listaVideo.isEmpty()) {
+                        NaoEncontrado naoEncontrado = new NaoEncontrado();
+                        naoEncontrado.setVisible(true);
+                    } else {
+                        if (listaVideo.size() == 1){
+                            MaterialBibliograficoEditaVideo editaVideo = new MaterialBibliograficoEditaVideo();
+                            editaVideo.setCampos(listaVideo.get(0));
+                            editaVideo.setVisible(true);
+                        } else {
+                            
+                        }
+                    }
                     break;
             }    
         } 

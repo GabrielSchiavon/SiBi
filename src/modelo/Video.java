@@ -107,4 +107,13 @@ public class Video extends Material{
         
         return resultado;
     }
+    
+    public void editarVideo(Video video) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.editarVideo(video);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }   
+    }
 }

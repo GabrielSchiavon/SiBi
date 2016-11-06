@@ -66,7 +66,19 @@ public class MaterialBibliograficoController {
         return video.consultarMaterial(valor, nome);
     }
     
-    public void editarMaterial(Livro livro) {
+    public void editarLivro(Livro livro) {
         livro.editarLivro(livro);
+    }
+    
+    public void editarArtigo(Artigo artigo) {
+        artigo.editarArtigo(artigo);
+    }
+    
+    public void editarPeriodico(Periodico periodico) {
+        periodico.editarPeriodico(periodico);
+    }
+    
+    public void editarVideo(Video video) {
+        video.editarVideo(video);
     }
 }

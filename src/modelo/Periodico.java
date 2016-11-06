@@ -85,4 +85,13 @@ public class Periodico extends Material{
         
         return resultado;
     }
+    
+    public void editarPeriodico(Periodico periodico) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.editarPeriodico(periodico);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }   
+    }
 }

@@ -97,4 +97,13 @@ public class Artigo extends Material{
         
         return resultado;
     }
+    
+    public void editarArtigo(Artigo artigo) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.editarArtigo(artigo);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }   
+    }
 }
