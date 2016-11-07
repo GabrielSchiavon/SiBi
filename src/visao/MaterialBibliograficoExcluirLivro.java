@@ -16,12 +16,12 @@ import modelo.Livro;
  *
  * @author Gabriel
  */
-public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
+public class MaterialBibliograficoExcluirLivro extends javax.swing.JFrame {
 
     /**
-     * Creates new form MaterialBibliograficoEditaLivro
+     * Creates new form MaterialBibliograficoExcluirLivro
      */
-    public MaterialBibliograficoEditaLivro() {
+    public MaterialBibliograficoExcluirLivro() {
         initComponents();
     }
 
@@ -34,60 +34,72 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldID = new javax.swing.JTextField();
-        jTextFieldNome = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldQuantidade = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextFieldAutor = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jButtonCancelar = new javax.swing.JButton();
         jTextFieldGenero = new javax.swing.JTextField();
+        jTextFieldData = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jTextFieldISBN = new javax.swing.JTextField();
+        jTextFieldID = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jTextFieldNome = new javax.swing.JTextField();
         jTextFieldEditora = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jTextFieldQuantidade = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jRadioButtonLivroNao = new javax.swing.JRadioButton();
         jRadioButtonLivroSim = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextFieldData = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFieldAutor = new javax.swing.JTextField();
+        jButtonExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Editar Livro");
-        setPreferredSize(new java.awt.Dimension(375, 450));
-        setResizable(false);
-
-        jLabel1.setText("Nome:");
-
-        jLabel2.setText("ID:");
-
-        jTextFieldID.setEditable(false);
-
-        jLabel3.setText("Quantidade:");
-
-        jLabel4.setText("Data de Criação:");
-
-        jLabel5.setText("Autor:");
+        setTitle("Excluir Livro");
 
         jLabel6.setText("Gênero:");
 
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+
+        jTextFieldGenero.setEnabled(false);
+
+        jTextFieldData.setEnabled(false);
+
+        jLabel1.setText("Nome:");
+
         jLabel7.setText("ISBN:");
+
+        jLabel2.setText("ID:");
+
+        jTextFieldISBN.setEnabled(false);
+
+        jTextFieldID.setEditable(false);
 
         jLabel8.setText("Editora:");
 
+        jTextFieldNome.setEnabled(false);
+
+        jTextFieldEditora.setEnabled(false);
+
+        jLabel3.setText("Quantidade:");
+
         jLabel9.setText("Especial:");
 
-        buttonGroup2.add(jRadioButtonLivroNao);
-        jRadioButtonLivroNao.setText("Não");
+        jTextFieldQuantidade.setEnabled(false);
 
-        buttonGroup2.add(jRadioButtonLivroSim);
+        jRadioButtonLivroNao.setText("Não");
+        jRadioButtonLivroNao.setEnabled(false);
+
         jRadioButtonLivroSim.setText("Sim");
+        jRadioButtonLivroSim.setEnabled(false);
         jRadioButtonLivroSim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonLivroSimActionPerformed(evt);
@@ -112,17 +124,16 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
                 .addComponent(jRadioButtonLivroSim))
         );
 
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel4.setText("Data de Criação:");
 
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setText("Autor:");
+
+        jTextFieldAutor.setEnabled(false);
+
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonExcluirActionPerformed(evt);
             }
         });
 
@@ -152,7 +163,7 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                                .addComponent(jTextFieldQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -169,9 +180,9 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
@@ -207,25 +218,33 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextFieldEditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 60, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
     private void jRadioButtonLivroSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonLivroSimActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonLivroSimActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         Calendar dataCadastro = Calendar.getInstance();
         Calendar dataCriacao = Calendar.getInstance();
         DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -235,7 +254,7 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
             Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(Level.SEVERE, null, ex);
         }
         Livro livro = new Livro();
-        
+
         livro.setAutor(jTextFieldAutor.getText());
         livro.setNome(jTextFieldNome.getText());
         livro.setId(Integer.parseInt(jTextFieldID.getText()));
@@ -247,23 +266,37 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
         livro.setDataCadastro(dataCadastro);
         livro.setDataCriacao(dataCriacao);
         MaterialBibliograficoController controller = new MaterialBibliograficoController();
-        
+
         try{
-            controller.editarLivro(livro);
+            controller.excluirLivro(livro);
             dispose ();
             ConfirmaOperacao confirma = new ConfirmaOperacao();
             confirma.setVisible(true);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
+    
+    public void setCampos(Livro livro) {
+        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        
+        jTextFieldID.setText(Integer.toString(livro.getId()));
+        jTextFieldNome.setText(livro.getNome());
+        jTextFieldQuantidade.setText(Integer.toString(livro.getQuantidadeInventario()));
+        jTextFieldISBN.setText(Integer.toString(livro.getIsbn()));
+        jTextFieldAutor.setText(livro.getAutor());
+        jTextFieldEditora.setText(livro.getEditora());
+        jTextFieldGenero.setText(livro.getGenero());
+        jTextFieldData.setText(formato.format(livro.getDataCriacao().getTime()));
+        
+        if (livro.isEspecial()){
+            jRadioButtonLivroSim.setSelected(true);
+        } else {
+            jRadioButtonLivroNao.setSelected(true);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -281,28 +314,27 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MaterialBibliograficoEditaLivro().setVisible(true);
+                new MaterialBibliograficoExcluirLivro().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -324,23 +356,4 @@ public class MaterialBibliograficoEditaLivro extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldQuantidade;
     // End of variables declaration//GEN-END:variables
-
-    void setCampos(Livro livro) {
-        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        
-        jTextFieldID.setText(Integer.toString(livro.getId()));
-        jTextFieldNome.setText(livro.getNome());
-        jTextFieldQuantidade.setText(Integer.toString(livro.getQuantidadeInventario()));
-        jTextFieldISBN.setText(Integer.toString(livro.getIsbn()));
-        jTextFieldAutor.setText(livro.getAutor());
-        jTextFieldEditora.setText(livro.getEditora());
-        jTextFieldGenero.setText(livro.getGenero());
-        jTextFieldData.setText(formato.format(livro.getDataCriacao().getTime()));
-        
-        if (livro.isEspecial()){
-            jRadioButtonLivroSim.setSelected(true);
-        } else {
-            jRadioButtonLivroNao.setSelected(true);
-        }
-    }
 }

@@ -106,4 +106,13 @@ public class Artigo extends Material{
             ex.printStackTrace();
         }   
     }
+    
+    public void excluirArtigo(Artigo artigo) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.excluirArtigo(artigo);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } 
+    }
 }

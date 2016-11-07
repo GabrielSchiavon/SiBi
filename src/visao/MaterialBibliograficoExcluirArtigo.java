@@ -16,12 +16,12 @@ import modelo.Artigo;
  *
  * @author Gabriel
  */
-public class MaterialBibliograficoEditaArtigo extends javax.swing.JFrame {
+public class MaterialBibliograficoExcluirArtigo extends javax.swing.JFrame {
 
     /**
-     * Creates new form MaterialBibliograficoEditarArtigo
+     * Creates new form MaterialBibliograficoExcluirArtigo
      */
-    public MaterialBibliograficoEditaArtigo() {
+    public MaterialBibliograficoExcluirArtigo() {
         initComponents();
     }
 
@@ -34,59 +34,71 @@ public class MaterialBibliograficoEditaArtigo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextFieldId = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldQuantidade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jButtonCancelar = new javax.swing.JButton();
         jTextFieldDataCriacao = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldAutor = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jTextFieldCategoria = new javax.swing.JTextField();
+        jTextFieldId = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jTextFieldResumo = new javax.swing.JTextField();
+        jTextFieldNome = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jTextFieldTags = new javax.swing.JTextField();
-        jButtonSalvar = new javax.swing.JButton();
-        jButtonCancelar = new javax.swing.JButton();
+        jTextFieldQuantidade = new javax.swing.JTextField();
+        jButtonExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Editar Artigo");
-        setPreferredSize(new java.awt.Dimension(375, 405));
-        setResizable(false);
-
-        jLabel1.setText("ID:");
-
-        jTextFieldId.setEditable(false);
-
-        jLabel2.setText("Nome:");
-
-        jLabel3.setText("Quantidade:");
+        setTitle("Excluir Artigo");
 
         jLabel4.setText("Data de Criação:");
-
-        jLabel5.setText("Autor:");
-
-        jLabel6.setText("Categoria:");
-
-        jLabel7.setText("Resumo:");
-
-        jLabel8.setText("Tags:");
-
-        jButtonSalvar.setText("Salvar");
-        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalvarActionPerformed(evt);
-            }
-        });
 
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
+            }
+        });
+
+        jTextFieldDataCriacao.setEnabled(false);
+
+        jLabel5.setText("Autor:");
+
+        jTextFieldAutor.setEnabled(false);
+
+        jLabel6.setText("Categoria:");
+
+        jLabel1.setText("ID:");
+
+        jTextFieldCategoria.setEnabled(false);
+
+        jTextFieldId.setEditable(false);
+
+        jLabel7.setText("Resumo:");
+
+        jLabel2.setText("Nome:");
+
+        jTextFieldResumo.setEnabled(false);
+
+        jTextFieldNome.setEnabled(false);
+
+        jLabel8.setText("Tags:");
+
+        jLabel3.setText("Quantidade:");
+
+        jTextFieldTags.setEnabled(false);
+
+        jTextFieldQuantidade.setEnabled(false);
+
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
             }
         });
 
@@ -116,21 +128,21 @@ public class MaterialBibliograficoEditaArtigo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldDataCriacao, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                                .addComponent(jTextFieldDataCriacao, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                             .addComponent(jTextFieldAutor)
                             .addComponent(jTextFieldResumo)
                             .addComponent(jTextFieldTags)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(38, 38, 38)
+                                .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -166,11 +178,11 @@ public class MaterialBibliograficoEditaArtigo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextFieldTags, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -180,19 +192,19 @@ public class MaterialBibliograficoEditaArtigo extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
-    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         Calendar dataCadastro = Calendar.getInstance();
         Calendar dataCriacao = Calendar.getInstance();
         DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Artigo artigo = new Artigo();
         MaterialBibliograficoController controller = new MaterialBibliograficoController();
-        
+
         try {
             dataCadastro.setTime(formato.parse(jTextFieldDataCriacao.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         artigo.setAutor(jTextFieldAutor.getText());
         artigo.setCategoria(jTextFieldCategoria.getText());
         artigo.setDataCadastro(dataCadastro);
@@ -202,17 +214,31 @@ public class MaterialBibliograficoEditaArtigo extends javax.swing.JFrame {
         artigo.setQuantidadeInventario(Integer.parseInt(jTextFieldQuantidade.getText()));
         artigo.setResumo(jTextFieldResumo.getText());
         artigo.setTags(jTextFieldTags.getText());
-        
+
         try {
-            controller.editarArtigo(artigo);
+            controller.excluirArtigo(artigo);
             dispose ();
             ConfirmaOperacao confirma = new ConfirmaOperacao();
             confirma.setVisible(true);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_jButtonSalvarActionPerformed
-
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+    
+    public void setCampos(Artigo artigo){
+        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        
+        jTextFieldId.setText(Integer.toString(artigo.getId()));
+        jTextFieldNome.setText(artigo.getNome());
+        jTextFieldQuantidade.setText(Integer.toString(artigo.getQuantidadeInventario()));
+        jTextFieldResumo.setText(artigo.getResumo());
+        jTextFieldTags.setText(artigo.getTags());
+        jTextFieldCategoria.setText(artigo.getCategoria());
+        jTextFieldAutor.setText(artigo.getAutor());
+        jTextFieldDataCriacao.setText(formato.format(artigo.getDataCriacao().getTime()));
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -230,28 +256,27 @@ public class MaterialBibliograficoEditaArtigo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MaterialBibliograficoEditaArtigo().setVisible(true);
+                new MaterialBibliograficoExcluirArtigo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JButton jButtonSalvar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -269,18 +294,4 @@ public class MaterialBibliograficoEditaArtigo extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldResumo;
     private javax.swing.JTextField jTextFieldTags;
     // End of variables declaration//GEN-END:variables
-
-    void setCampos(Artigo artigo){
-        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        
-        jTextFieldId.setText(Integer.toString(artigo.getId()));
-        jTextFieldNome.setText(artigo.getNome());
-        jTextFieldQuantidade.setText(Integer.toString(artigo.getQuantidadeInventario()));
-        jTextFieldResumo.setText(artigo.getResumo());
-        jTextFieldTags.setText(artigo.getTags());
-        jTextFieldCategoria.setText(artigo.getCategoria());
-        jTextFieldAutor.setText(artigo.getAutor());
-        jTextFieldDataCriacao.setText(formato.format(artigo.getDataCriacao().getTime()));
-        
-    }
 }

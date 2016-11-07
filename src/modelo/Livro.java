@@ -129,4 +129,13 @@ public class Livro extends Material{
     public boolean possoSerLocado(){
         return true;
     }
+
+    public void excluirLivro(Livro livro) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.excluirLivro(livro);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } 
+    }
 }

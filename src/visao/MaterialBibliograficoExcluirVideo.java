@@ -16,12 +16,12 @@ import modelo.Video;
  *
  * @author Gabriel
  */
-public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
+public class MaterialBibliograficoExcluirVideo extends javax.swing.JFrame {
 
     /**
-     * Creates new form EditaVideo
+     * Creates new form MaterialBibliograficoExcluirVideo
      */
-    public MaterialBibliograficoEditaVideo() {
+    public MaterialBibliograficoExcluirVideo() {
         initComponents();
     }
 
@@ -34,52 +34,47 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextFieldID = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jTextFieldSinopse = new javax.swing.JTextField();
         jTextFieldNome = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jTextFieldDuracao = new javax.swing.JTextField();
         jTextFieldQuantidade = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jTextFieldData = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldAutor = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jTextFieldGenero = new javax.swing.JTextField();
+        jTextFieldID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldSinopse = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextFieldDuracao = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Editar Video");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("ID:");
+        jTextFieldSinopse.setEnabled(false);
 
-        jTextFieldID.setEnabled(false);
-
-        jLabel2.setText("Nome:");
-
-        jLabel3.setText("Quantidade:");
-
-        jLabel4.setText("Data de Criação:");
-
-        jLabel5.setText("Autor:");
-
-        jLabel6.setText("Genero:");
-
-        jLabel7.setText("Sinopse:");
+        jTextFieldNome.setEnabled(false);
 
         jLabel8.setText("Duração(min):");
 
-        jButton1.setText("Salvar");
+        jLabel3.setText("Quantidade:");
+
+        jTextFieldDuracao.setEnabled(false);
+
+        jTextFieldQuantidade.setEnabled(false);
+
+        jButton1.setText("Excluir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jLabel4.setText("Data de Criação:");
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +82,24 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jTextFieldData.setEnabled(false);
+
+        jLabel5.setText("Autor:");
+
+        jTextFieldAutor.setEnabled(false);
+
+        jLabel6.setText("Genero:");
+
+        jLabel1.setText("ID:");
+
+        jTextFieldGenero.setEnabled(false);
+
+        jTextFieldID.setEnabled(false);
+
+        jLabel7.setText("Sinopse:");
+
+        jLabel2.setText("Nome:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,16 +129,10 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldSinopse))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 198, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +143,11 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(50, 50, 50)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldNome)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -172,19 +183,17 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextFieldDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(37, 73, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Calendar dataCadastro = Calendar.getInstance();
@@ -192,13 +201,13 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
         DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Video video = new Video();
         MaterialBibliograficoController controller = new MaterialBibliograficoController();
-        
+
         try {
             dataCadastro.setTime(formato.parse(jTextFieldData.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         video.setAutor(jTextFieldAutor.getText());
         video.setGenero(jTextFieldGenero.getText());
         video.setDataCadastro(dataCadastro);
@@ -208,9 +217,9 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
         video.setQuantidadeInventario(Integer.parseInt(jTextFieldQuantidade.getText()));
         video.setSinopse(jTextFieldSinopse.getText());
         video.setDuracao(Double.parseDouble(jTextFieldDuracao.getText()));
-        
+
         try {
-            controller.editarVideo(video);
+            controller.excluirVideo(video);
             dispose ();
             ConfirmaOperacao confirma = new ConfirmaOperacao();
             confirma.setVisible(true);
@@ -219,6 +228,23 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void setCampos(Video video) {
+        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        jTextFieldID.setText(Integer.toString(video.getId()));
+        jTextFieldNome.setText(video.getNome());
+        jTextFieldQuantidade.setText(Integer.toString(video.getQuantidadeInventario()));
+        jTextFieldSinopse.setText(video.getSinopse());
+        jTextFieldAutor.setText(video.getAutor());
+        jTextFieldData.setText(formato.format(video.getDataCriacao().getTime()));
+        jTextFieldDuracao.setText(Double.toString(video.getDuracao()));
+        jTextFieldGenero.setText(video.getGenero());
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -236,21 +262,20 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirVideo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MaterialBibliograficoEditaVideo().setVisible(true);
+                new MaterialBibliograficoExcluirVideo().setVisible(true);
             }
         });
     }
@@ -275,17 +300,4 @@ public class MaterialBibliograficoEditaVideo extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldQuantidade;
     private javax.swing.JTextField jTextFieldSinopse;
     // End of variables declaration//GEN-END:variables
-    
-    void setCampos(Video video){
-        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        
-        jTextFieldID.setText(Integer.toString(video.getId()));
-        jTextFieldNome.setText(video.getNome());
-        jTextFieldQuantidade.setText(Integer.toString(video.getQuantidadeInventario()));
-        jTextFieldSinopse.setText(video.getSinopse());
-        jTextFieldAutor.setText(video.getAutor());
-        jTextFieldData.setText(formato.format(video.getDataCriacao().getTime()));
-        jTextFieldDuracao.setText(Double.toString(video.getDuracao()));
-        jTextFieldGenero.setText(video.getGenero());
-    }
 }

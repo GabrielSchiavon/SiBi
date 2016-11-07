@@ -153,4 +153,52 @@ public class MaterialBibliograficoDAO {
         session.close();
         return null;
     }
+
+    public void excluirLivro(Livro livro) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        session.beginTransaction();
+        session.delete(livro);
+        session.getTransaction().commit();
+        
+        session.flush();
+        session.close();
+    }
+    
+    public void excluirArtigo(Artigo artigo) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        session.beginTransaction();
+        session.delete(artigo);
+        session.getTransaction().commit();
+        
+        session.flush();
+        session.close();
+    }
+    
+    public void excluirPeriodico(Periodico periodico) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        session.beginTransaction();
+        session.delete(periodico);
+        session.getTransaction().commit();
+        
+        session.flush();
+        session.close();
+    }
+    
+    public void excluirVideo(Video video) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        session.beginTransaction();
+        session.delete(video);
+        session.getTransaction().commit();
+        
+        session.flush();
+        session.close();
+    }
 }

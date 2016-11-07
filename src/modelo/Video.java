@@ -116,4 +116,13 @@ public class Video extends Material{
             ex.printStackTrace();
         }   
     }
+    
+    public void excluirVideo(Video video) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.excluirVideo(video);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } 
+    }
 }

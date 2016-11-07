@@ -12,14 +12,20 @@ import modelo.*;
  * @author Gabriel
  */
 public class MaterialBibliograficoProcura extends javax.swing.JFrame {
-
+    private int opcao;
     /**
      * Creates new form MaterialBibliograficoProcura
+     * @param opcao
      */
+    public MaterialBibliograficoProcura(int opcao) {
+        this.opcao = opcao;
+        initComponents();
+    }
+    
     public MaterialBibliograficoProcura() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +44,8 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Procurar");
         setPreferredSize(new java.awt.Dimension(330, 250));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Livro", "Artigo", "Periodico", "Vídeo" }));
@@ -134,78 +141,132 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
             CampoVazio campoVazio = new CampoVazio();
             campoVazio.setVisible(true);
         } else {
-            switch (valor) {
-                case 0:
-                    Livro livro = new Livro();        
-                    List<Livro> listaLivro = controller.consultarMaterial(valor, jTextFieldNome.getText(), livro);
-                    if (listaLivro.isEmpty()) {
-                        NaoEncontrado naoEncontrado = new NaoEncontrado();
-                        naoEncontrado.setVisible(true);
-                    } else {
-                        if (listaLivro.size() == 1){
+            if (opcao == 1) {
+                switch (valor) {
+                    case 0:
+                        Livro livro = new Livro();
+                        List<Livro> listaLivro = controller.consultarMaterial(valor, jTextFieldNome.getText(), livro);
+                        if (listaLivro.isEmpty()) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
+                        } else {
                             MaterialBibliograficoEditaLivro editaLivro = new MaterialBibliograficoEditaLivro();
                             editaLivro.setCampos(listaLivro.get(0));
                             editaLivro.setVisible(true);
-                        } else {
-                            
                         }
-                    }
-                    break;
-                    
-                case 1:
-                    Artigo artigo = new Artigo();
-                    List<Artigo> listaArtigo = controller.consultarMaterial(valor, jTextFieldNome.getText(), artigo);
-                    if(listaArtigo.isEmpty()) {
-                        NaoEncontrado naoEncontrado = new NaoEncontrado();
-                        naoEncontrado.setVisible(true);
-                    } else {
-                        if (listaArtigo.size() == 1){
-                            MaterialBibliograficoEditaArtigo editaArtigo = new MaterialBibliograficoEditaArtigo();
-                            editaArtigo.setCampos(listaArtigo.get(0));
-                            editaArtigo.setVisible(true);
+                        break;
+
+                    case 1:
+                        Artigo artigo = new Artigo();
+                        List<Artigo> listaArtigo = controller.consultarMaterial(valor, jTextFieldNome.getText(), artigo);
+                        if (listaArtigo.isEmpty()) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
                         } else {
-                            
+                            if (listaArtigo.size() == 1) {
+                                MaterialBibliograficoEditaArtigo editaArtigo = new MaterialBibliograficoEditaArtigo();
+                                editaArtigo.setCampos(listaArtigo.get(0));
+                                editaArtigo.setVisible(true);
+                            }
                         }
-                    }
-                    
-                    break;
-                    
-                case 2:
-                    Periodico periodico = new Periodico();
-                    List<Periodico> listaPeriodico = controller.consultarMaterial(valor, jTextFieldNome.getText(), periodico);
-                    
-                    if(listaPeriodico.isEmpty()) {
-                        NaoEncontrado naoEncontrado = new NaoEncontrado();
-                        naoEncontrado.setVisible(true);
-                    } else {
-                        if (listaPeriodico.size() == 1){
-                            MaterialBibliograficoEditaPeriodico editaPeriodico = new MaterialBibliograficoEditaPeriodico();
-                            editaPeriodico.setCampos(listaPeriodico.get(0));
-                            editaPeriodico.setVisible(true);
+                        break;
+
+                    case 2:
+                        Periodico periodico = new Periodico();
+                        List<Periodico> listaPeriodico = controller.consultarMaterial(valor, jTextFieldNome.getText(), periodico);
+
+                        if (listaPeriodico.isEmpty()) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
                         } else {
-                            
+                            if (listaPeriodico.size() == 1) {
+                                MaterialBibliograficoEditaPeriodico editaPeriodico = new MaterialBibliograficoEditaPeriodico();
+                                editaPeriodico.setCampos(listaPeriodico.get(0));
+                                editaPeriodico.setVisible(true);
+                            }
                         }
-                    }
-                    
-                    break;
-                    
-                case 3:
-                    Video video = new Video();
-                    List<Video> listaVideo = controller.consultarMaterial(valor, jTextFieldNome.getText(), video);
-                    
-                    if(listaVideo.isEmpty()) {
-                        NaoEncontrado naoEncontrado = new NaoEncontrado();
-                        naoEncontrado.setVisible(true);
-                    } else {
-                        if (listaVideo.size() == 1){
-                            MaterialBibliograficoEditaVideo editaVideo = new MaterialBibliograficoEditaVideo();
-                            editaVideo.setCampos(listaVideo.get(0));
-                            editaVideo.setVisible(true);
+                        break;
+
+                    case 3:
+                        Video video = new Video();
+                        List<Video> listaVideo = controller.consultarMaterial(valor, jTextFieldNome.getText(), video);
+
+                        if (listaVideo.isEmpty()) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
                         } else {
-                            
+                            if (listaVideo.size() == 1) {
+                                MaterialBibliograficoEditaVideo editaVideo = new MaterialBibliograficoEditaVideo();
+                                editaVideo.setCampos(listaVideo.get(0));
+                                editaVideo.setVisible(true);
+                            }
                         }
+                        break;
+                }
+            } else {
+                if (opcao == 2){
+                    switch (valor) {
+                        case 0:
+                            Livro livro = new Livro();
+                            List<Livro> listaLivro = controller.consultarMaterial(valor, jTextFieldNome.getText(), livro);
+                            if (listaLivro.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                MaterialBibliograficoExcluirLivro excluirLivro = new MaterialBibliograficoExcluirLivro();
+                                excluirLivro.setCampos(listaLivro.get(0));
+                                excluirLivro.setVisible(true);
+                            }
+                            break;
+                            
+                        case 1:
+                            Artigo artigo = new Artigo();
+                            List<Artigo> listaArtigo = controller.consultarMaterial(valor, jTextFieldNome.getText(), artigo);
+                            if (listaArtigo.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (listaArtigo.size() == 1) {
+                                    MaterialBibliograficoExcluirArtigo excluirArtigo = new MaterialBibliograficoExcluirArtigo();
+                                    excluirArtigo.setCampos(listaArtigo.get(0));
+                                    excluirArtigo.setVisible(true);
+                                }
+                            }
+                            break;
+                            
+                        case 2:
+                            Periodico periodico = new Periodico();
+                            List<Periodico> listaPeriodico = controller.consultarMaterial(valor, jTextFieldNome.getText(), periodico);
+
+                            if (listaPeriodico.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (listaPeriodico.size() == 1) {
+                                    MaterialBibliograficoExcluirPeriodico excluirPeriodico = new MaterialBibliograficoExcluirPeriodico();
+                                    excluirPeriodico.setCampos(listaPeriodico.get(0));
+                                    excluirPeriodico.setVisible(true);
+                                }
+                            }
+                            break;
+                            
+                        case 3:
+                            Video video = new Video();
+                            List<Video> listaVideo = controller.consultarMaterial(valor, jTextFieldNome.getText(), video);
+
+                            if (listaVideo.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (listaVideo.size() == 1) {
+                                    MaterialBibliograficoExcluirVideo excluirVideo = new MaterialBibliograficoExcluirVideo();
+                                    excluirVideo.setCampos(listaVideo.get(0));
+                                    excluirVideo.setVisible(true);
+                                }
+                            }
+                            break;
                     }
-                    break;
+                }
             }    
         } 
     }//GEN-LAST:event_jButtonProcurarActionPerformed

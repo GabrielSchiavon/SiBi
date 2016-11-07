@@ -16,12 +16,12 @@ import modelo.Periodico;
  *
  * @author Gabriel
  */
-public class MaterialBibliograficoEditaPeriodico extends javax.swing.JFrame {
+public class MaterialBibliograficoExcluirPeriodico extends javax.swing.JFrame {
 
     /**
-     * Creates new form MaterialBibliograficoEditaPeriodico
+     * Creates new form MaterialBibliograficoExcluirPeriodico
      */
-    public MaterialBibliograficoEditaPeriodico() {
+    public MaterialBibliograficoExcluirPeriodico() {
         initComponents();
     }
 
@@ -34,51 +34,62 @@ public class MaterialBibliograficoEditaPeriodico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextFieldId = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldQuantidade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldDataCriacao = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldAssunto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jTextFieldIssn = new javax.swing.JTextField();
+        jTextFieldId = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jTextFieldDoi = new javax.swing.JTextField();
-        jButtonSalvar = new javax.swing.JButton();
+        jTextFieldNome = new javax.swing.JTextField();
+        jButtonExcluir = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
+        jTextFieldQuantidade = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Editar Periodico");
-        setResizable(false);
-
-        jLabel1.setText("ID:");
-
-        jTextFieldId.setEnabled(false);
-
-        jLabel2.setText("Nome:");
-
-        jLabel3.setText("Quantidade:");
+        setTitle("Excluir Video");
 
         jLabel4.setText("Data de Criação:");
 
+        jTextFieldDataCriacao.setEnabled(false);
+
         jLabel5.setText("Assunto:");
+
+        jTextFieldAssunto.setEnabled(false);
 
         jLabel6.setText("ISSN:");
 
+        jLabel1.setText("ID:");
+
+        jTextFieldIssn.setEnabled(false);
+
+        jTextFieldId.setEnabled(false);
+
         jLabel7.setText("DOI:");
 
-        jButtonSalvar.setText("Salvar");
-        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("Nome:");
+
+        jTextFieldDoi.setEnabled(false);
+
+        jTextFieldNome.setEnabled(false);
+
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalvarActionPerformed(evt);
+                jButtonExcluirActionPerformed(evt);
             }
         });
 
+        jLabel3.setText("Quantidade:");
+
         jButtonCancelar.setText("Cancelar");
+
+        jTextFieldQuantidade.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,7 +107,7 @@ public class MaterialBibliograficoEditaPeriodico extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                                 .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +130,7 @@ public class MaterialBibliograficoEditaPeriodico extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
-                        .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -153,27 +164,27 @@ public class MaterialBibliograficoEditaPeriodico extends javax.swing.JFrame {
                     .addComponent(jTextFieldDoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         Calendar dataCadastro = Calendar.getInstance();
         Calendar dataCriacao = Calendar.getInstance();
         DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Periodico periodico = new Periodico();
         MaterialBibliograficoController controller = new MaterialBibliograficoController();
-        
+
         try {
             dataCadastro.setTime(formato.parse(jTextFieldDataCriacao.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(MaterialBibliograficoEditaLivro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         periodico.setAssunto(jTextFieldAssunto.getText());
         periodico.setDataCadastro(dataCadastro);
         periodico.setDataCriacao(dataCriacao);
@@ -182,17 +193,30 @@ public class MaterialBibliograficoEditaPeriodico extends javax.swing.JFrame {
         periodico.setIssn(Integer.parseInt(jTextFieldIssn.getText()));
         periodico.setNome(jTextFieldNome.getText());
         periodico.setQuantidadeInventario(Integer.parseInt(jTextFieldQuantidade.getText()));
-        
+
         try {
-            controller.editarPeriodico(periodico);
+            controller.excluirPeriodico(periodico);
             dispose ();
             ConfirmaOperacao confirma = new ConfirmaOperacao();
             confirma.setVisible(true);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_jButtonSalvarActionPerformed
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
+    public void setCampos(Periodico periodico){
+        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        
+        jTextFieldAssunto.setText(periodico.getAssunto());
+        jTextFieldDataCriacao.setText(formato.format(periodico.getDataCriacao().getTime()));
+        jTextFieldDoi.setText(periodico.getDoi());
+        jTextFieldId.setText(Integer.toString(periodico.getId()));
+        jTextFieldIssn.setText(Integer.toString(periodico.getIssn()));
+        jTextFieldNome.setText(periodico.getNome());
+        jTextFieldQuantidade.setText(Integer.toString(periodico.getQuantidadeInventario()));
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -210,27 +234,27 @@ public class MaterialBibliograficoEditaPeriodico extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaPeriodico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirPeriodico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaPeriodico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirPeriodico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaPeriodico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirPeriodico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MaterialBibliograficoEditaPeriodico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaterialBibliograficoExcluirPeriodico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MaterialBibliograficoEditaPeriodico().setVisible(true);
+                new MaterialBibliograficoExcluirPeriodico().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JButton jButtonSalvar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -246,17 +270,4 @@ public class MaterialBibliograficoEditaPeriodico extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldQuantidade;
     // End of variables declaration//GEN-END:variables
-
-    void setCampos(Periodico periodico){
-        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        
-        jTextFieldAssunto.setText(periodico.getAssunto());
-        jTextFieldDataCriacao.setText(formato.format(periodico.getDataCriacao().getTime()));
-        jTextFieldDoi.setText(periodico.getDoi());
-        jTextFieldId.setText(Integer.toString(periodico.getId()));
-        jTextFieldIssn.setText(Integer.toString(periodico.getIssn()));
-        jTextFieldNome.setText(periodico.getNome());
-        jTextFieldQuantidade.setText(Integer.toString(periodico.getQuantidadeInventario()));
-        
-    }
 }

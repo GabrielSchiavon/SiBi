@@ -81,4 +81,20 @@ public class MaterialBibliograficoController {
     public void editarVideo(Video video) {
         video.editarVideo(video);
     }
+
+    public void excluirLivro(Livro livro) {
+        livro.excluirLivro(livro);
+    }
+    
+    public void excluirArtigo(Artigo artigo) {
+        artigo.excluirArtigo(artigo);
+    }
+    
+    public void excluirPeriodico(Periodico periodico) {
+        periodico.excluirPeriodico(periodico);
+    }
+    
+    public void excluirVideo(Video video) {
+        video.excluirVideo(video);
+    }
 }

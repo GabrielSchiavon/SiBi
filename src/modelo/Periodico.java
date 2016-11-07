@@ -94,4 +94,13 @@ public class Periodico extends Material{
             ex.printStackTrace();
         }   
     }
+    
+    public void excluirPeriodico(Periodico periodico) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        try{
+            dao.excluirPeriodico(periodico);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } 
+    }
 }

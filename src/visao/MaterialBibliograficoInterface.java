@@ -46,6 +46,11 @@ public class MaterialBibliograficoInterface extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,9 +85,14 @@ public class MaterialBibliograficoInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        MaterialBibliograficoProcura procuraMB = new MaterialBibliograficoProcura();
+        MaterialBibliograficoProcura procuraMB = new MaterialBibliograficoProcura(1);
         procuraMB.setVisible(true);
     }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        MaterialBibliograficoProcura procuraMB = new MaterialBibliograficoProcura(2);
+        procuraMB.setVisible(true);
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     /**
      * @param args the command line arguments
