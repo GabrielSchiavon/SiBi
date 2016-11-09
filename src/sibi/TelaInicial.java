@@ -34,6 +34,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jMenu5 = new javax.swing.JMenu();
         jButtonMatBibliografico = new javax.swing.JButton();
+        jButtonGerenciarPessoas = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
@@ -79,6 +80,13 @@ public class TelaInicial extends javax.swing.JFrame {
         jButtonMatBibliografico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonMatBibliograficoActionPerformed(evt);
+            }
+        });
+
+        jButtonGerenciarPessoas.setText("Gerenciar Pessoas");
+        jButtonGerenciarPessoas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGerenciarPessoasActionPerformed(evt);
             }
         });
 
@@ -130,13 +138,17 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonMatBibliografico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(462, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addComponent(jButtonGerenciarPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(209, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jButtonMatBibliografico, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonMatBibliografico, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonGerenciarPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
 
@@ -159,6 +171,12 @@ public class TelaInicial extends javax.swing.JFrame {
         MaterialBibliograficoInterface interfaceMB = new MaterialBibliograficoInterface();
         interfaceMB.setVisible(true);
     }//GEN-LAST:event_jButtonMatBibliograficoActionPerformed
+
+    private void jButtonGerenciarPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenciarPessoasActionPerformed
+        // TODO add your handling code here:
+        TipoPessoa tipoUSR = new TipoPessoa();
+        tipoUSR.setVisible(true);
+    }//GEN-LAST:event_jButtonGerenciarPessoasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +214,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonGerenciarPessoas;
     private javax.swing.JButton jButtonMatBibliografico;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;

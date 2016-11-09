@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/MaterialBibliograficoEditaVideo.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/MaterialBibliograficoInterface.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/sibi/TelaInicial.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/MaterialBibliograficoEditaPeriodico.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/MaterialBibliograficoProcura.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/controller/MaterialBibliograficoController.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/Artigo.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/MaterialBibliograficoEditaArtigo.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/Video.java</file>
+            <file>file:/home/alisson/NetBeansProjects/SiBi/src/visao/TipoPessoa.java</file>
+            <file>file:/home/alisson/NetBeansProjects/SiBi/src/visao/MaterialBibliograficoCadastro.java</file>
+            <file>file:/home/alisson/NetBeansProjects/SiBi/src/visao/OpcaoGerente.java</file>
+            <file>file:/home/alisson/NetBeansProjects/SiBi/src/visao/CadastrarPessoa.java</file>
         </group>
     </open-files>
 </project-private>

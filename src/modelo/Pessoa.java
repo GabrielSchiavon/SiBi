@@ -36,12 +36,14 @@ public abstract class Pessoa implements Serializable {
     private String bairro;
     @Column(nullable = false)
     private int numero;
-    @Column
+    @Column(nullable = false)
     private String complemento;
     @Column(nullable = true)
     private String email;
     @Column(nullable = false)
     private String senha;
+    @Column(nullable = false)
+    private int sexo;
     
     public enum Sexo{
         FEMININO(0), MASCULINO(1);
@@ -53,6 +55,23 @@ public abstract class Pessoa implements Serializable {
         }
 
         public int getSexo(){return this.sexo;}
+    }
+    
+    public Pessoa(){}
+    
+    public Pessoa(String nome, int cpf, int rg, Calendar dataNasc, int cep, String endereço, String bairro, int numero, String complemento, String email, String senha, int sexo) {
+    this.nome = nome;
+    this.cpf = cpf;
+    this.rg = rg;
+    this.dataNasc = dataNasc;
+    this.cep = cep;
+    this.endereço = endereço;
+    this.bairro = bairro;
+    this.numero = numero;
+    this.complemento = complemento;
+    this.email = email;
+    this.senha = senha;
+    this.sexo = sexo;    
     }
 
     public int getId() {
@@ -151,5 +170,13 @@ public abstract class Pessoa implements Serializable {
         this.senha = senha;
     }
     
+    public int getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(int sexo) {
+        this.sexo = sexo;
+    }
+
     
 }
