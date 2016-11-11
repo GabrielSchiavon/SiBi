@@ -50,6 +50,22 @@ public class MaterialBibliograficoController {
         video.cadastrarVideo(video);
     }
     
+    public List consultarMaterial(Livro livro, int IdMaterial) {
+        return livro.consultarMaterial(IdMaterial);
+    }
+    
+    public List consultarMaterial(Artigo artigo, int IdMaterial) {
+        return artigo.consultarMaterial(IdMaterial);
+    }
+    
+    public List consultarMaterial(Periodico periodico, int IdMaterial) {
+        return periodico.consultarMaterial(IdMaterial);
+    }
+    
+    public List consultarMaterial(Video video, int IdMaterial) {
+        return video.consultarMaterial(IdMaterial);
+    }
+    
     public List consultarMaterial(int valor, String nome, Livro livro){
         return livro.consultarMaterial(valor, nome);
     }

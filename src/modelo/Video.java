@@ -23,18 +23,15 @@ public class Video extends Material{
     private String sinopse;
     @Column(nullable = false)
     private double duracao;
-    @Column(nullable = false)
-    private int quantLocados;
 
     public Video(){}
     public Video(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
             String autor, String genero, String sinopse, double duracao, int quantLocados){
-        super(nome, qtd, dataCadastro, dataCriacao);
+        super(nome, qtd, dataCadastro, dataCriacao, quantLocados);
         this.autor = autor;
         this.genero = genero;
         this.sinopse = sinopse;
         this.duracao = duracao;
-        this.quantLocados = quantLocados;
     }
     
     public String getAutor() {
@@ -69,14 +66,6 @@ public class Video extends Material{
         this.duracao = duracao;
     }
 
-    public int getQuantLocados() {
-        return quantLocados;
-    }
-
-    public void setQuantLocados(int quantLocados) {
-        this.quantLocados = quantLocados;
-    }
-    
     public String listarDados(){
         return "";
     }
@@ -93,6 +82,11 @@ public class Video extends Material{
         } catch (Exception ex){
             ex.printStackTrace();
         } 
+    }
+    
+    public List consultarMaterial(int id) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        return dao.consultarMaterial(3, id);
     }
     
     public List consultarMaterial(int valor, String nome){

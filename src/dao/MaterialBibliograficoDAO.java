@@ -117,6 +117,42 @@ public class MaterialBibliograficoDAO {
         session.close();
     }
     
+    public List consultarMaterial(int valor, int idMaterial){
+        Criteria crit;
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+
+        switch (valor) {
+            case 0:
+                crit = session.createCriteria(Livro.class);
+                crit.add(Restrictions.eq("id", idMaterial));
+                List<Livro> resultadoLivro = crit.list();
+                return resultadoLivro;
+
+            case 1:
+                crit = session.createCriteria(Artigo.class);
+                crit.add(Restrictions.eq("id", idMaterial));
+                List<Artigo> resultadoArtigo = crit.list();
+                return resultadoArtigo;
+
+            case 2:
+                crit = session.createCriteria(Periodico.class);
+                crit.add(Restrictions.eq("id", idMaterial));
+                List<Periodico> resultadoPeriodico = crit.list();
+                return resultadoPeriodico;
+
+            case 3:
+                crit = session.createCriteria(Video.class);
+                crit.add(Restrictions.eq("id", idMaterial));
+                List<Video> resultadoVideo = crit.list();
+                return resultadoVideo;
+        }
+
+        session.flush();
+        session.close();
+        return null;
+    }
+    
     public List consultarMaterial(int valor, String nome){
         Criteria crit;
         SessionFactory sf = HibernateUtil.getSessionFactory();

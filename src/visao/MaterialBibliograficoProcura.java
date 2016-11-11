@@ -3,6 +3,7 @@
  */
 package visao;
 
+import controller.EmprestimoController;
 import controller.MaterialBibliograficoController;
 import java.util.List;
 import modelo.*;
@@ -36,8 +37,8 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelId = new javax.swing.JLabel();
+        jLabelNome = new javax.swing.JLabel();
         jTextFieldID = new javax.swing.JTextField();
         jTextFieldNome = new javax.swing.JTextField();
         jButtonProcurar = new javax.swing.JButton();
@@ -50,9 +51,9 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Livro", "Artigo", "Periodico", "Vídeo" }));
 
-        jLabel1.setText("ID:");
+        jLabelId.setText("ID:");
 
-        jLabel2.setText("Nome:");
+        jLabelNome.setText("Nome:");
 
         jButtonProcurar.setText("Procurar");
         jButtonProcurar.setPreferredSize(new java.awt.Dimension(100, 40));
@@ -81,8 +82,8 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
+                            .addComponent(jLabelNome)
+                            .addComponent(jLabelId))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldID, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
@@ -111,19 +112,19 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabelId)
                     .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabelNome))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,75 +137,78 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
     private void jButtonProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarActionPerformed
         int valor = jComboBox1.getSelectedIndex();
         MaterialBibliograficoController controller = new MaterialBibliograficoController();
+        EmprestimoController controllerEmprestimo = new EmprestimoController();
         
         if (jTextFieldID.getText().equals("") && jTextFieldNome.getText().equals("")) {
             CampoVazio campoVazio = new CampoVazio();
             campoVazio.setVisible(true);
         } else {
-            if (opcao == 1) {
-                switch (valor) {
-                    case 0:
-                        Livro livro = new Livro();
-                        List<Livro> listaLivro = controller.consultarMaterial(valor, jTextFieldNome.getText(), livro);
-                        if (listaLivro.isEmpty()) {
-                            NaoEncontrado naoEncontrado = new NaoEncontrado();
-                            naoEncontrado.setVisible(true);
-                        } else {
-                            MaterialBibliograficoEditaLivro editaLivro = new MaterialBibliograficoEditaLivro();
-                            editaLivro.setCampos(listaLivro.get(0));
-                            editaLivro.setVisible(true);
-                        }
-                        break;
-
-                    case 1:
-                        Artigo artigo = new Artigo();
-                        List<Artigo> listaArtigo = controller.consultarMaterial(valor, jTextFieldNome.getText(), artigo);
-                        if (listaArtigo.isEmpty()) {
-                            NaoEncontrado naoEncontrado = new NaoEncontrado();
-                            naoEncontrado.setVisible(true);
-                        } else {
-                            if (listaArtigo.size() == 1) {
-                                MaterialBibliograficoEditaArtigo editaArtigo = new MaterialBibliograficoEditaArtigo();
-                                editaArtigo.setCampos(listaArtigo.get(0));
-                                editaArtigo.setVisible(true);
+            switch (opcao) {
+                case 1:
+                    switch (valor) {
+                        case 0:
+                            Livro livro = new Livro();
+                            List<Livro> listaLivro = controller.consultarMaterial(valor, jTextFieldNome.getText(), livro);
+                            if (listaLivro.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                MaterialBibliograficoEditaLivro editaLivro = new MaterialBibliograficoEditaLivro();
+                                editaLivro.setCampos(listaLivro.get(0));
+                                editaLivro.setVisible(true);
                             }
-                        }
-                        break;
+                            break;
 
-                    case 2:
-                        Periodico periodico = new Periodico();
-                        List<Periodico> listaPeriodico = controller.consultarMaterial(valor, jTextFieldNome.getText(), periodico);
-
-                        if (listaPeriodico.isEmpty()) {
-                            NaoEncontrado naoEncontrado = new NaoEncontrado();
-                            naoEncontrado.setVisible(true);
-                        } else {
-                            if (listaPeriodico.size() == 1) {
-                                MaterialBibliograficoEditaPeriodico editaPeriodico = new MaterialBibliograficoEditaPeriodico();
-                                editaPeriodico.setCampos(listaPeriodico.get(0));
-                                editaPeriodico.setVisible(true);
+                        case 1:
+                            Artigo artigo = new Artigo();
+                            List<Artigo> listaArtigo = controller.consultarMaterial(valor, jTextFieldNome.getText(), artigo);
+                            if (listaArtigo.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (listaArtigo.size() == 1) {
+                                    MaterialBibliograficoEditaArtigo editaArtigo = new MaterialBibliograficoEditaArtigo();
+                                    editaArtigo.setCampos(listaArtigo.get(0));
+                                    editaArtigo.setVisible(true);
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case 3:
-                        Video video = new Video();
-                        List<Video> listaVideo = controller.consultarMaterial(valor, jTextFieldNome.getText(), video);
+                        case 2:
+                            Periodico periodico = new Periodico();
+                            List<Periodico> listaPeriodico = controller.consultarMaterial(valor, jTextFieldNome.getText(), periodico);
 
-                        if (listaVideo.isEmpty()) {
-                            NaoEncontrado naoEncontrado = new NaoEncontrado();
-                            naoEncontrado.setVisible(true);
-                        } else {
-                            if (listaVideo.size() == 1) {
-                                MaterialBibliograficoEditaVideo editaVideo = new MaterialBibliograficoEditaVideo();
-                                editaVideo.setCampos(listaVideo.get(0));
-                                editaVideo.setVisible(true);
+                            if (listaPeriodico.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (listaPeriodico.size() == 1) {
+                                    MaterialBibliograficoEditaPeriodico editaPeriodico = new MaterialBibliograficoEditaPeriodico();
+                                    editaPeriodico.setCampos(listaPeriodico.get(0));
+                                    editaPeriodico.setVisible(true);
+                                }
                             }
-                        }
-                        break;
-                }
-            } else {
-                if (opcao == 2){
+                            break;
+
+                        case 3:
+                            Video video = new Video();
+                            List<Video> listaVideo = controller.consultarMaterial(valor, jTextFieldNome.getText(), video);
+
+                            if (listaVideo.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (listaVideo.size() == 1) {
+                                    MaterialBibliograficoEditaVideo editaVideo = new MaterialBibliograficoEditaVideo();
+                                    editaVideo.setCampos(listaVideo.get(0));
+                                    editaVideo.setVisible(true);
+                                }
+                            }
+                            break;
+                    }
+                    break;
+                
+                case 2:
                     switch (valor) {
                         case 0:
                             Livro livro = new Livro();
@@ -218,7 +222,7 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
                                 excluirLivro.setVisible(true);
                             }
                             break;
-                            
+
                         case 1:
                             Artigo artigo = new Artigo();
                             List<Artigo> listaArtigo = controller.consultarMaterial(valor, jTextFieldNome.getText(), artigo);
@@ -233,7 +237,7 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
                                 }
                             }
                             break;
-                            
+
                         case 2:
                             Periodico periodico = new Periodico();
                             List<Periodico> listaPeriodico = controller.consultarMaterial(valor, jTextFieldNome.getText(), periodico);
@@ -249,7 +253,7 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
                                 }
                             }
                             break;
-                            
+
                         case 3:
                             Video video = new Video();
                             List<Video> listaVideo = controller.consultarMaterial(valor, jTextFieldNome.getText(), video);
@@ -266,11 +270,188 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
                             }
                             break;
                     }
-                }
-            }    
+                    break;
+                    
+                case 3:
+                    int quantidade;
+                    switch (valor) {
+                        case 0:
+                            Livro livro = new Livro();
+                            List<Livro> listaLivro = controller.consultarMaterial(valor, jTextFieldNome.getText(), livro);
+                            quantidade = listaLivro.get(0).getQuantidadeInventario() - listaLivro.get(0).getQuantLocados();
+                            if (listaLivro.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (quantidade <= 0) {
+                                    dispose();
+                                    ExemplaresLocados locado = new ExemplaresLocados();
+                                    locado.setVisible(true);
+                                } else {
+                                    EmprestimoCadastro emprestimoCadastro = new EmprestimoCadastro(0);
+                                    emprestimoCadastro.setCampos(listaLivro.get(0));
+                                    emprestimoCadastro.setVisible(true);
+                                    listaLivro.get(0).setQuantLocados(listaLivro.get(0).getQuantLocados() + 1);
+                                    controller.editarLivro(listaLivro.get(0));
+                                }
+                            }
+                            break;
+                        case 1:
+                            Artigo artigo = new Artigo();
+                            List<Artigo> listaArtigo = controller.consultarMaterial(valor, jTextFieldNome.getText(), artigo);
+                            if (listaArtigo.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (listaArtigo.get(0).possoSerLocado()) {
+                                    EmprestimoCadastro emprestimoCadastro = new EmprestimoCadastro(0);
+                                    emprestimoCadastro.setCampos(listaArtigo.get(0));
+                                    emprestimoCadastro.setVisible(true);
+                                    listaArtigo.get(0).setQuantLocados(listaArtigo.get(0).getQuantLocados() + 1);
+                                    controller.editarArtigo(listaArtigo.get(0));
+                                } else {
+                                    dispose();
+                                    ExemplaresLocados locado = new ExemplaresLocados();
+                                    locado.setVisible(true);
+                                }
+                            }
+                            break;
+                        case 2:
+                            Periodico periodico = new Periodico();
+                            List<Periodico> listaPeriodico = controller.consultarMaterial(valor, jTextFieldNome.getText(), periodico);
+
+                            if (listaPeriodico.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (listaPeriodico.get(0).possoSerLocado()) {
+                                    EmprestimoCadastro emprestimoCadastro = new EmprestimoCadastro(0);
+                                    emprestimoCadastro.setCampos(listaPeriodico.get(0));
+                                    emprestimoCadastro.setVisible(true);
+                                    listaPeriodico.get(0).setQuantLocados(listaPeriodico.get(0).getQuantLocados() + 1);
+                                    controller.editarPeriodico(listaPeriodico.get(0));
+                                } else {
+                                    dispose();
+                                    ExemplaresLocados locado = new ExemplaresLocados();
+                                    locado.setVisible(true);
+                                }
+                            }
+                            break;
+                        case 3:
+                            Video video = new Video();
+                            List<Video> listaVideo = controller.consultarMaterial(valor, jTextFieldNome.getText(), video);
+
+                            if (listaVideo.isEmpty()) {
+                                NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                naoEncontrado.setVisible(true);
+                            } else {
+                                if (listaVideo.get(0).possoSerLocado()) {
+                                    EmprestimoCadastro emprestimoCadastro = new EmprestimoCadastro(0);
+                                    emprestimoCadastro.setCampos(listaVideo.get(0));
+                                    emprestimoCadastro.setVisible(true);
+                                    listaVideo.get(0).setQuantLocados(listaVideo.get(0).getQuantLocados() + 1);
+                                    controller.editarVideo(listaVideo.get(0));
+                                } else {
+                                    dispose();
+                                    ExemplaresLocados locado = new ExemplaresLocados();
+                                    locado.setVisible(true);
+                                }
+                            }
+                            break;    
+                    }
+                    break;
+                    
+                case 4:
+                    jComboBox1.setEnabled(false);
+                    jTextFieldNome.setEnabled(false);
+                    Emprestimo emprestimo = new Emprestimo();
+                    List<Emprestimo> listaEmprestimo = controllerEmprestimo.consultarEmprestimo(Integer.parseInt(jTextFieldID.getText()), emprestimo);
+                    if (listaEmprestimo.isEmpty()) {
+                        NaoEncontrado naoEncontrado = new NaoEncontrado();
+                        naoEncontrado.setVisible(true);
+                    } else {
+                        switch (listaEmprestimo.get(0).getTipoMaterial()) {
+                            case 0:
+                                List<Livro> resultadoLivro = procurarPeloId(0, listaEmprestimo.get(0).getIdMaterial());
+                                if (resultadoLivro.isEmpty()) {
+                                    NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                    naoEncontrado.setVisible(true);
+                                } else {
+                                    resultadoLivro.get(0).setQuantLocados(resultadoLivro.get(0).getQuantLocados() - 1);
+                                    controller.editarLivro(resultadoLivro.get(0));
+                                }
+                                break;
+                                
+                            case 1:
+                                List<Artigo> resultadoArtigo = procurarPeloId(1, listaEmprestimo.get(0).getIdMaterial());
+                                if (resultadoArtigo.isEmpty()) {
+                                    NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                    naoEncontrado.setVisible(true);
+                                } else {
+                                    resultadoArtigo.get(0).setQuantLocados(resultadoArtigo.get(0).getQuantLocados() - 1);
+                                    controller.editarArtigo(resultadoArtigo.get(0));
+                                }
+                                break;
+                                
+                            case 2:
+                                List<Periodico> resultadoPeriodico = procurarPeloId(2, listaEmprestimo.get(0).getIdMaterial());
+                                if (resultadoPeriodico.isEmpty()) {
+                                    NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                    naoEncontrado.setVisible(true);
+                                } else {
+                                    resultadoPeriodico.get(0).setQuantLocados(resultadoPeriodico.get(0).getQuantLocados() - 1);
+                                    controller.editarPeriodico(resultadoPeriodico.get(0));
+                                }
+                                break;
+                                
+                            case 3:
+                                List<Video> resultadoVideo = procurarPeloId(0, listaEmprestimo.get(0).getIdMaterial());
+                                if (resultadoVideo.isEmpty()) {
+                                    NaoEncontrado naoEncontrado = new NaoEncontrado();
+                                    naoEncontrado.setVisible(true);
+                                } else {
+                                    resultadoVideo.get(0).setQuantLocados(resultadoVideo.get(0).getQuantLocados() - 1);
+                                    controller.editarVideo(resultadoVideo.get(0));
+                                }
+                                break;
+                        }
+                        controllerEmprestimo.enviarDevolucao(listaEmprestimo.get(0));
+                        dispose();
+                        ConfirmaOperacao confirma = new ConfirmaOperacao();
+                        confirma.setVisible(true);
+                    }
+                    break;
+            }             
         } 
     }//GEN-LAST:event_jButtonProcurarActionPerformed
 
+    public List procurarPeloId(int tipoMaterial, int IdMaterial) {
+        MaterialBibliograficoController controller = new MaterialBibliograficoController();
+        
+        switch (tipoMaterial) {
+            case 0:
+                Livro livro = new Livro();
+                livro.setId(IdMaterial);
+                return controller.consultarMaterial(livro, IdMaterial);
+                
+            case 1:
+                Artigo artigo = new Artigo();
+                artigo.setId(IdMaterial);
+                return controller.consultarMaterial(artigo, IdMaterial);
+                
+            case 2:
+                Periodico periodico = new Periodico();
+                periodico.setId(IdMaterial);
+                return controller.consultarMaterial(periodico, IdMaterial);
+                
+            case 3:
+                Video video = new Video();
+                video.setId(IdMaterial);
+                return controller.consultarMaterial(video, IdMaterial);
+        }
+        return null;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -310,9 +491,9 @@ public class MaterialBibliograficoProcura extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonProcurar;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelId;
+    private javax.swing.JLabel jLabelNome;
     private javax.swing.JTextField jTextFieldID;
     private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables

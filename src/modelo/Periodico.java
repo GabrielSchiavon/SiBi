@@ -25,7 +25,7 @@ public class Periodico extends Material{
     public Periodico(){}
     public Periodico(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
             String assunto, int issn, String doi){
-        super(nome, qtd, dataCadastro, dataCriacao);
+        super(nome, qtd, dataCadastro, dataCriacao, 0);
         this.assunto = assunto;
         this.issn = issn;
         this.doi = doi;
@@ -71,6 +71,11 @@ public class Periodico extends Material{
         } catch (Exception ex){
             ex.printStackTrace();
         } 
+    }
+    
+    public List consultarMaterial(int id) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        return dao.consultarMaterial(2, id);
     }
     
     public List consultarMaterial(int valor, String nome){
