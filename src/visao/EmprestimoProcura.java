@@ -5,14 +5,19 @@ package visao;
 
 import controller.EmprestimoController;
 import controller.MaterialBibliograficoController;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Artigo;
 import modelo.Emprestimo;
 import modelo.Livro;
 import modelo.Periodico;
-import modelo.Usuario;
 import modelo.Video;
 
 /**
@@ -137,7 +142,7 @@ public class EmprestimoProcura extends javax.swing.JFrame {
             naoEncontrado.setVisible(true);
         } else {
             switch (opcao){
-                case 0:  //Devolução
+                case 0:
                     Emprestimo emp = listaEmprestimo.get(0);
                     emp.setEstado(false);
                     emprestimoController.enviarDevolucao(emp);
@@ -197,7 +202,7 @@ public class EmprestimoProcura extends javax.swing.JFrame {
                     }
                 break;
                 
-                case 1: //Renovação
+                case 1:
                     Calendar novaData = Calendar.getInstance();
                     novaData.add(Calendar.DAY_OF_MONTH, 7);
                     listaEmprestimo.get(0).setDataDevolucao(novaData.getTime());
