@@ -217,6 +217,7 @@ public class MaterialBibliograficoExcluirVideo extends javax.swing.JFrame {
         video.setQuantidadeInventario(Integer.parseInt(jTextFieldQuantidade.getText()));
         video.setSinopse(jTextFieldSinopse.getText());
         video.setDuracao(Double.parseDouble(jTextFieldDuracao.getText()));
+        video.setStatus(0);
 
         try {
             controller.excluirVideo(video);

@@ -18,9 +18,5 @@
     <mapping class="modelo.Pessoa"/>
     <mapping class="modelo.Video"/>
     <mapping class="modelo.Emprestimo"/>
-    <mapping class="modelo.Usuario"/>
-    <mapping class="modelo.Atendente"/>
-    <mapping class="modelo.Biblioteconomista"/>
-    <mapping class="modelo.Gerente"/>
   </session-factory>
 </hibernate-configuration>

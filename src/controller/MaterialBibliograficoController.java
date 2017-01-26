@@ -82,6 +82,22 @@ public class MaterialBibliograficoController {
         return video.consultarMaterial(valor, nome);
     }
     
+    public List consultarMaterialID(int valor, int id, Livro livro){
+        return livro.consultarMaterialID(valor, id);
+    }
+    
+    public List consultarMaterialID(int valor, int id, Artigo artigo){
+        return artigo.consultarMaterialID(valor, id);
+    }
+    
+    public List consultarMaterialID(int valor, int id, Periodico periodico){
+        return periodico.consultarMaterialID(valor, id);
+    }
+    
+    public List consultarMaterialID(int valor, int id, Video video){
+        return video.consultarMaterialID(valor, id);
+    }
+    
     public void editarLivro(Livro livro) {
         livro.editarLivro(livro);
     }

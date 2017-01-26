@@ -23,8 +23,8 @@ public class EmprestimoController {
         emprestimo.cadastro(emprestimo);
     }
     
-    public List consultarEmprestimo(int id, Emprestimo emprestimo){
-        return emprestimo.consulta(id);
+    public List consultarEmprestimo(int idMaterial, int idUsuario, Emprestimo emprestimo){
+        return emprestimo.consulta(idMaterial, idUsuario);
     }
     
     public void enviarDevolucao(Emprestimo emprestimo){

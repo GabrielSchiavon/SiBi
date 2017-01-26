@@ -27,7 +27,7 @@ public class Video extends Material{
     public Video(){}
     public Video(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
             String autor, String genero, String sinopse, double duracao, int quantLocados){
-        super(nome, qtd, dataCadastro, dataCriacao, quantLocados);
+        super(nome, qtd, dataCadastro, dataCriacao, quantLocados, 1);
         this.autor = autor;
         this.genero = genero;
         this.sinopse = sinopse;
@@ -95,6 +95,19 @@ public class Video extends Material{
         
         try {
             resultado = dao.consultarMaterial(valor, nome);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        return resultado;
+    }
+    
+    public List consultarMaterialID(int valor, int id) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        List resultado = null;
+        
+        try {
+            resultado = dao.consultarMaterialID(valor, id);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -31,15 +31,19 @@ public abstract class Material implements Serializable {
     private Calendar dataCriacao;
     @Column(nullable = false)
     private int quantLocados;
+    @Column(nullable = false)
+    private int status;
     
     public Material(){}
     
-    public Material(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao, int quantLocados){
+    public Material(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
+            int quantLocados, int status){
         this.nome = nome;
         this.quantidadeInventario = qtd;
         this.dataCadastro = dataCadastro;
         this.dataCriacao = dataCriacao;
         this.quantLocados = quantLocados;
+        this.status = status;
     }
     
     public int getId() {
@@ -100,5 +104,13 @@ public abstract class Material implements Serializable {
 
     public void setQuantLocados(int quantLocados) {
         this.quantLocados = quantLocados;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

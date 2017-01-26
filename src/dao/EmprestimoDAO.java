@@ -4,12 +4,8 @@
 package dao;
 
 import java.util.List;
-import modelo.Artigo;
 import modelo.Emprestimo;
 import modelo.HibernateUtil;
-import modelo.Livro;
-import modelo.Periodico;
-import modelo.Video;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -36,13 +32,15 @@ public class EmprestimoDAO{
         session.close();
     }
     
-    public List consultarEmprestimo(int valorId){
+    public List consultarEmprestimo(int idMaterial, int idUsuario){
         Criteria crit;
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
         
         crit = session.createCriteria(Emprestimo.class);
-        crit.add(Restrictions.eq("idMaterial", valorId));
+        crit.add(Restrictions.eq("idMaterial", idMaterial));
+        crit.add(Restrictions.eq("idUsuario", idUsuario));
+        crit.add(Restrictions.eq("estado", true));
         List<Emprestimo> resultado = crit.list();
         
         session.flush();
@@ -55,10 +53,23 @@ public class EmprestimoDAO{
         Session session = sf.openSession();
         
         session.beginTransaction();
-        session.delete(emprestimo);
+        session.update(emprestimo);
         session.getTransaction().commit();
         
         session.flush();
         session.close();
     }
+
+    public void renovacao(Emprestimo emprestimo) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+        
+        session.beginTransaction();
+        session.update(emprestimo);
+        session.getTransaction().commit();
+        
+        session.flush();
+        session.close();
+    }
+
 }

@@ -31,7 +31,7 @@ public class Livro extends Material{
     public Livro(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
             int isbn, String genero, String autor, String editora, boolean especial, int qtdLocados){
         
-        super(nome, qtd, dataCadastro, dataCriacao, qtdLocados);
+        super(nome, qtd, dataCadastro, dataCriacao, qtdLocados, 1);
         this.isbn = isbn;
         this.genero = genero;
         this.autor = autor;
@@ -131,5 +131,18 @@ public class Livro extends Material{
         } catch (Exception ex){
             ex.printStackTrace();
         } 
+    }
+
+    public List consultarMaterialID(int valor, int id) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        List resultado = null;
+        
+        try {
+            resultado = dao.consultarMaterialID(valor, id);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        return resultado;
     }
 }

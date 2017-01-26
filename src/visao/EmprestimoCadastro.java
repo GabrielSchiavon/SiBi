@@ -4,6 +4,8 @@
 package visao;
 
 import controller.EmprestimoController;
+import controller.PessoaController;
+import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -72,7 +74,11 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
 
         jLabel2.setText("Nome do Usuário:");
 
-        jTextFieldNomeUsuario.setEnabled(false);
+        jTextFieldNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeUsuarioActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Data de Empréstimo:");
 
@@ -112,7 +118,12 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
 
         jLabel6.setText("ID:");
 
-        jTextFieldIdUsuario.setEnabled(false);
+        jTextFieldIdUsuario.setEditable(false);
+        jTextFieldIdUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIdUsuarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -233,6 +244,14 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
+    private void jTextFieldIdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioActionPerformed
+    }//GEN-LAST:event_jTextFieldIdUsuarioActionPerformed
+
+    private void jTextFieldNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeUsuarioActionPerformed
+        //PessoaController usuarioController = new PessoaController();
+        //usuarioController.buscarPessoa(0, jTextFieldNomeUsuario.getText());
+    }//GEN-LAST:event_jTextFieldNomeUsuarioActionPerformed
+
     public void setCampos(Livro livro) {
         DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Calendar data = Calendar.getInstance();
@@ -326,8 +345,6 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonSalvar;
-    private javax.swing.JFormattedTextField jFormattedTextFieldData;
-    private javax.swing.JFormattedTextField jFormattedTextFieldData1;
     private javax.swing.JFormattedTextField jFormattedTextFieldDataDevolucao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

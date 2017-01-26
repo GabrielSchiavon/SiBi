@@ -101,17 +101,21 @@ public class Emprestimo implements Serializable{
         }
     }
     
-    public List consulta(int id){
+    public List consulta(int idMaterial, int idUsuario){
         EmprestimoDAO dao = new EmprestimoDAO();
         List lista;
         
-        lista = dao.consultarEmprestimo(id);
+        lista = dao.consultarEmprestimo(idMaterial, idUsuario);
         return lista;
     }
     
     public void realizarDevolucao(Emprestimo emprestimo) {
         EmprestimoDAO dao = new EmprestimoDAO();
-        
         dao.devolucao(emprestimo);
+    }
+
+    public void realizarRenovacao(Emprestimo emprestimo) {
+        EmprestimoDAO dao = new EmprestimoDAO();
+        dao.renovacao(emprestimo);
     }
 }

@@ -126,24 +126,28 @@ public class MaterialBibliograficoDAO {
             case 0:
                 crit = session.createCriteria(Livro.class);
                 crit.add(Restrictions.eq("id", idMaterial));
+                crit.add(Restrictions.eq("status", 1));
                 List<Livro> resultadoLivro = crit.list();
                 return resultadoLivro;
 
             case 1:
                 crit = session.createCriteria(Artigo.class);
                 crit.add(Restrictions.eq("id", idMaterial));
+                crit.add(Restrictions.eq("status", 1));
                 List<Artigo> resultadoArtigo = crit.list();
                 return resultadoArtigo;
 
             case 2:
                 crit = session.createCriteria(Periodico.class);
                 crit.add(Restrictions.eq("id", idMaterial));
+                crit.add(Restrictions.eq("status", 1));
                 List<Periodico> resultadoPeriodico = crit.list();
                 return resultadoPeriodico;
 
             case 3:
                 crit = session.createCriteria(Video.class);
                 crit.add(Restrictions.eq("id", idMaterial));
+                crit.add(Restrictions.eq("status", 1));
                 List<Video> resultadoVideo = crit.list();
                 return resultadoVideo;
         }
@@ -162,24 +166,28 @@ public class MaterialBibliograficoDAO {
             case 0:
                 crit = session.createCriteria(Livro.class);
                 crit.add(Restrictions.eq("nome", nome));
+                crit.add(Restrictions.eq("status", 1));
                 List<Livro> resultadoLivro = crit.list();
                 return resultadoLivro;
                 
             case 1:
                 crit = session.createCriteria(Artigo.class);
                 crit.add(Restrictions.eq("nome", nome));
+                crit.add(Restrictions.eq("status", 1));
                 List<Artigo> resultadoArtigo = crit.list();
                 return resultadoArtigo;
                 
             case 2:
                 crit = session.createCriteria(Periodico.class);
                 crit.add(Restrictions.eq("nome", nome));
+                crit.add(Restrictions.eq("status", 1));
                 List<Periodico> resultadoPeriodico = crit.list();
                 return resultadoPeriodico;
                 
             case 3:
                 crit = session.createCriteria(Video.class);
                 crit.add(Restrictions.eq("nome", nome));
+                crit.add(Restrictions.eq("status", 1));
                 List<Video> resultadoVideo = crit.list();
                 return resultadoVideo;
         }
@@ -190,12 +198,52 @@ public class MaterialBibliograficoDAO {
         return null;
     }
 
+    public List consultarMaterialID(int valor, int id) {
+        Criteria crit;
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+
+        switch (valor) {
+            case 0:
+                crit = session.createCriteria(Livro.class);
+                crit.add(Restrictions.eq("id", id));
+                crit.add(Restrictions.eq("status", 1));
+                List<Livro> resultadoLivro = crit.list();
+                return resultadoLivro;
+
+            case 1:
+                crit = session.createCriteria(Artigo.class);
+                crit.add(Restrictions.eq("id", id));
+                crit.add(Restrictions.eq("status", 1));
+                List<Artigo> resultadoArtigo = crit.list();
+                return resultadoArtigo;
+
+            case 2:
+                crit = session.createCriteria(Periodico.class);
+                crit.add(Restrictions.eq("id", id));
+                crit.add(Restrictions.eq("status", 1));
+                List<Periodico> resultadoPeriodico = crit.list();
+                return resultadoPeriodico;
+
+            case 3:
+                crit = session.createCriteria(Video.class);
+                crit.add(Restrictions.eq("id", id));
+                crit.add(Restrictions.eq("status", 1));
+                List<Video> resultadoVideo = crit.list();
+                return resultadoVideo;
+        }
+
+        session.flush();
+        session.close();
+        return null;
+    }
+    
     public void excluirLivro(Livro livro) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
         
         session.beginTransaction();
-        session.delete(livro);
+        session.update(livro);
         session.getTransaction().commit();
         
         session.flush();
@@ -207,7 +255,7 @@ public class MaterialBibliograficoDAO {
         Session session = sf.openSession();
         
         session.beginTransaction();
-        session.delete(artigo);
+        session.update(artigo);
         session.getTransaction().commit();
         
         session.flush();
@@ -219,7 +267,7 @@ public class MaterialBibliograficoDAO {
         Session session = sf.openSession();
         
         session.beginTransaction();
-        session.delete(periodico);
+        session.update(periodico);
         session.getTransaction().commit();
         
         session.flush();
@@ -231,7 +279,7 @@ public class MaterialBibliograficoDAO {
         Session session = sf.openSession();
         
         session.beginTransaction();
-        session.delete(video);
+        session.update(video);
         session.getTransaction().commit();
         
         session.flush();
