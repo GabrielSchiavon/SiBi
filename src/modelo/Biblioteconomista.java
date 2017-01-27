@@ -16,9 +16,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Biblioteconomista")
 public class Biblioteconomista extends Pessoa{ 
-    //@Column(nullable = false)
-    //@OneToOne
-    //private Pessoa pessoa;
+    @Column(nullable = false)
+    @OneToOne
+    private Pessoa pessoa;
     @Column(nullable = false)
     private boolean status;
     @Column(nullable = false)

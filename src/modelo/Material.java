@@ -29,21 +29,14 @@ public abstract class Material implements Serializable {
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Calendar dataCriacao;
-    @Column(nullable = false)
-    private int quantLocados;
-    @Column(nullable = false)
-    private int status;
-    
+
     public Material(){}
     
-    public Material(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
-            int quantLocados, int status){
+    public Material(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao){
         this.nome = nome;
         this.quantidadeInventario = qtd;
         this.dataCadastro = dataCadastro;
         this.dataCriacao = dataCriacao;
-        this.quantLocados = quantLocados;
-        this.status = status;
     }
     
     public int getId() {
@@ -95,22 +88,6 @@ public abstract class Material implements Serializable {
     }
     
     public boolean possoSerLocado(){
-        return ((quantidadeInventario - quantLocados) > 0);
-    }
-
-    public int getQuantLocados() {
-        return quantLocados;
-    }
-
-    public void setQuantLocados(int quantLocados) {
-        this.quantLocados = quantLocados;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
+        return true;
     }
 }

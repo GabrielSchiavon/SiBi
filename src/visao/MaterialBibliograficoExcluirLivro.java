@@ -265,7 +265,6 @@ public class MaterialBibliograficoExcluirLivro extends javax.swing.JFrame {
         livro.setQuantidadeInventario(Integer.parseInt(jTextFieldQuantidade.getText()));
         livro.setDataCadastro(dataCadastro);
         livro.setDataCriacao(dataCriacao);
-        livro.setStatus(0);
         MaterialBibliograficoController controller = new MaterialBibliograficoController();
 
         try{

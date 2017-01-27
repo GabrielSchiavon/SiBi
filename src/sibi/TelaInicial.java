@@ -35,9 +35,6 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jButtonMatBibliografico = new javax.swing.JButton();
         jButtonGerenciarPessoas = new javax.swing.JButton();
-        jButtonEmprestimo = new javax.swing.JButton();
-        jButtonDevolucao = new javax.swing.JButton();
-        jButtonRenovacao = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
@@ -93,27 +90,6 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        jButtonEmprestimo.setText("Emprestimo");
-        jButtonEmprestimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEmprestimoActionPerformed(evt);
-            }
-        });
-
-        jButtonDevolucao.setText("Devolução");
-        jButtonDevolucao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDevolucaoActionPerformed(evt);
-            }
-        });
-
-        jButtonRenovacao.setText("Renovação");
-        jButtonRenovacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRenovacaoActionPerformed(evt);
-            }
-        });
-
         jMenu1.setText("Principal");
 
         jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
@@ -161,16 +137,9 @@ public class TelaInicial extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonMatBibliografico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonGerenciarPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButtonRenovacao, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButtonMatBibliografico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(jButtonGerenciarPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(209, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -180,13 +149,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonMatBibliografico, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonGerenciarPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jButtonRenovacao, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
 
         pack();
@@ -214,21 +177,6 @@ public class TelaInicial extends javax.swing.JFrame {
         TipoPessoa tipoUSR = new TipoPessoa();
         tipoUSR.setVisible(true);
     }//GEN-LAST:event_jButtonGerenciarPessoasActionPerformed
-
-    private void jButtonEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmprestimoActionPerformed
-        MaterialBibliograficoProcura emprestimo = new MaterialBibliograficoProcura(3);
-        emprestimo.setVisible(true);
-    }//GEN-LAST:event_jButtonEmprestimoActionPerformed
-
-    private void jButtonDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDevolucaoActionPerformed
-        EmprestimoProcura devolucao = new EmprestimoProcura(0);
-        devolucao.setVisible(true);
-    }//GEN-LAST:event_jButtonDevolucaoActionPerformed
-
-    private void jButtonRenovacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRenovacaoActionPerformed
-        EmprestimoProcura procura = new EmprestimoProcura(1);
-        procura.setVisible(true);
-    }//GEN-LAST:event_jButtonRenovacaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,11 +214,8 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonDevolucao;
-    private javax.swing.JButton jButtonEmprestimo;
     private javax.swing.JButton jButtonGerenciarPessoas;
     private javax.swing.JButton jButtonMatBibliografico;
-    private javax.swing.JButton jButtonRenovacao;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu1;

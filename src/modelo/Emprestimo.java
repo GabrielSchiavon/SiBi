@@ -3,10 +3,8 @@
  */
 package modelo;
 
-import dao.EmprestimoDAO;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -20,12 +18,6 @@ public class Emprestimo implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
-    @Column(nullable = false)
-    private int idMaterial;
-    @Column(nullable = false)
-    private int idUsuario;
-    @Column(nullable = false)
-    private int tipoMaterial;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataEmprestimo;
@@ -66,56 +58,5 @@ public class Emprestimo implements Serializable{
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
-    public int getIdMaterial() {
-        return idMaterial;
-    }
-
-    public void setIdMaterial(int idMaterial) {
-        this.idMaterial = idMaterial;
-    }
-
-    public int getTipoMaterial() {
-        return tipoMaterial;
-    }
-
-    public void setTipoMaterial(int tipoMaterial) {
-        this.tipoMaterial = tipoMaterial;
-    }
     
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-    
-    public void cadastro(Emprestimo emprestimo) {
-        EmprestimoDAO dao = new EmprestimoDAO();
-        
-        try {
-            dao.cadastro(emprestimo);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    
-    public List consulta(int idMaterial, int idUsuario){
-        EmprestimoDAO dao = new EmprestimoDAO();
-        List lista;
-        
-        lista = dao.consultarEmprestimo(idMaterial, idUsuario);
-        return lista;
-    }
-    
-    public void realizarDevolucao(Emprestimo emprestimo) {
-        EmprestimoDAO dao = new EmprestimoDAO();
-        dao.devolucao(emprestimo);
-    }
-
-    public void realizarRenovacao(Emprestimo emprestimo) {
-        EmprestimoDAO dao = new EmprestimoDAO();
-        dao.renovacao(emprestimo);
-    }
 }

@@ -28,7 +28,7 @@ public class Artigo extends Material{
     public Artigo(){}
     public Artigo(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
             String autor, String categoria, String resumo, String tags){
-        super(nome, qtd, dataCadastro, dataCriacao, 0, 1);
+        super(nome, qtd, dataCadastro, dataCriacao);
         this.categoria = categoria;
         this.autor = autor;
         this.resumo = resumo;
@@ -85,11 +85,6 @@ public class Artigo extends Material{
         } 
     }
     
-    public List consultarMaterial(int id) {
-        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
-        return dao.consultarMaterial(1, id);
-    }
-    
     public List consultarMaterial(int valor, String nome){
         MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
         List resultado = null;
@@ -119,18 +114,5 @@ public class Artigo extends Material{
         } catch (Exception ex){
             ex.printStackTrace();
         } 
-    }
-
-    public List consultarMaterialID(int valor, int id) {
-        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
-        List resultado = null;
-        
-        try {
-            resultado = dao.consultarMaterialID(valor, id);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        
-        return resultado;
     }
 }

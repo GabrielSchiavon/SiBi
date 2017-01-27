@@ -214,7 +214,6 @@ public class MaterialBibliograficoExcluirArtigo extends javax.swing.JFrame {
         artigo.setQuantidadeInventario(Integer.parseInt(jTextFieldQuantidade.getText()));
         artigo.setResumo(jTextFieldResumo.getText());
         artigo.setTags(jTextFieldTags.getText());
-        artigo.setStatus(0);
 
         try {
             controller.excluirArtigo(artigo);

@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/ReservaSolicita.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/sibi/TelaInicial.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/HibernateUtil.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/MaterialBibliograficoEditaPeriodico.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/MaterialDisponivel.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/Reserva.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/MaterialBibliograficoProcura.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/ReservaInterface.java</file>
+            <file>file:/D:/Meus%20Documentos/Desktop/CC/ISS/Trab1/SiBi-master/src/visao/MaterialBibliograficoEditaArtigo.java</file>
+            <file>file:/D:/Meus%20Documentos/Desktop/CC/ISS/Trab1/SiBi-master/src/visao/MaterialBibliograficoInterface.java</file>
+            <file>file:/D:/Meus%20Documentos/Desktop/CC/ISS/Trab1/SiBi-master/src/visao/MaterialBibliograficoProcura.java</file>
+            <file>file:/D:/Meus%20Documentos/Desktop/CC/ISS/Trab1/SiBi-master/src/visao/ViewGerarPDf.java</file>
         </group>
     </open-files>
 </project-private>
