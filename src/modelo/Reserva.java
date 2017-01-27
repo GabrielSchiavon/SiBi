@@ -3,6 +3,7 @@
  */
 package modelo;
 
+import dao.ReservaDAO;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "reserva")
-class Reserva implements Serializable {
+public class Reserva implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -23,12 +24,10 @@ class Reserva implements Serializable {
     @Column(nullable = false)
     private int idUsuario;
     @Column(nullable = false)
-    private int proxReserva;
     @Temporal(TemporalType.DATE)
     private Date dataReserva;
 
     public Reserva(){
-        this.proxReserva = -1;
     }
     
     public Reserva(int idMaterial, int idUsuario, Date dataReserva) {
@@ -60,14 +59,6 @@ class Reserva implements Serializable {
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
-
-    public int getProxReserva() {
-        return proxReserva;
-    }
-
-    public void setProxReserva(int proxReserva) {
-        this.proxReserva = proxReserva;
-    }
     
     public Date getDataReserva() {
         return dataReserva;
@@ -77,8 +68,13 @@ class Reserva implements Serializable {
         this.dataReserva = dataReserva;
     }
     
-    //Falta implementar
-    private boolean verificarReserva(){
-        return true;
+    public void realizarReserva(Reserva reserva) {
+        ReservaDAO dao = new ReservaDAO();
+        dao.cadastroReserva(reserva);
+    }
+    
+    public boolean verificarReserva(int idMaterial, int idUsuario){
+        ReservaDAO dao = new ReservaDAO();
+        return dao.verificaReserva(idMaterial, idUsuario);
     }
 }
