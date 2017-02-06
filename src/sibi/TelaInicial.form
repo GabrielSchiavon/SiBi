@@ -145,9 +145,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonMatBibliografico" min="-2" pref="190" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButtonMatBibliografico" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="jButtonEmprestimo" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+                  <Component id="jButtonRenovacao" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Component id="jButtonGerenciarPessoas" min="-2" pref="190" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButtonDevolucao" pref="190" max="32767" attributes="0"/>
+                  <Component id="jButtonGerenciarPessoas" pref="190" max="32767" attributes="0"/>
+                  <Component id="jButtonReserva" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace pref="209" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -160,7 +168,17 @@
                   <Component id="jButtonMatBibliografico" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="jButtonGerenciarPessoas" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="275" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButtonEmprestimo" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jButtonDevolucao" min="-2" pref="50" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButtonRenovacao" pref="50" max="32767" attributes="0"/>
+                  <Component id="jButtonReserva" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="105" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -180,6 +198,38 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGerenciarPessoasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonEmprestimo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Emprestimo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEmprestimoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonDevolucao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Devolu&#xe7;&#xe3;o"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDevolucaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonRenovacao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Renova&#xe7;&#xe3;o"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRenovacaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonReserva">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reserva"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonReservaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

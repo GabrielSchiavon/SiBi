@@ -127,7 +127,6 @@ public class ReservaSolicita extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MaterialBibliograficoController materialController = new MaterialBibliograficoController();
-        PessoaController pessoaController = new PessoaController();
         
         int tipoMaterial = jComboBox1.getSelectedIndex();
         int idMaterial = Integer.parseInt(jTextFieldMaterial.getText());

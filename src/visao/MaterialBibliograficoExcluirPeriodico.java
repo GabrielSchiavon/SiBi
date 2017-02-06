@@ -193,6 +193,7 @@ public class MaterialBibliograficoExcluirPeriodico extends javax.swing.JFrame {
         periodico.setIssn(Integer.parseInt(jTextFieldIssn.getText()));
         periodico.setNome(jTextFieldNome.getText());
         periodico.setQuantidadeInventario(Integer.parseInt(jTextFieldQuantidade.getText()));
+        periodico.setStatus(0);
 
         try {
             controller.excluirPeriodico(periodico);

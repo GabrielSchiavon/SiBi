@@ -25,21 +25,18 @@ public class Livro extends Material{
     private String editora;
     @Column(nullable = false)
     private boolean especial;
-    @Column(nullable = false)
-    private int quantLocados;
 
     public Livro(){}
     
     public Livro(String nome, int qtd, Calendar dataCadastro, Calendar dataCriacao,
             int isbn, String genero, String autor, String editora, boolean especial, int qtdLocados){
         
-        super(nome, qtd, dataCadastro, dataCriacao);
+        super(nome, qtd, dataCadastro, dataCriacao, qtdLocados, 1);
         this.isbn = isbn;
         this.genero = genero;
         this.autor = autor;
         this.editora = editora;
         this.especial = especial;
-        this.quantLocados = qtdLocados;
     }
     
     public int getIsbn() {
@@ -81,14 +78,6 @@ public class Livro extends Material{
     public void setEspecial(boolean especial) {
         this.especial = especial;
     }
-
-    public int getQuantLocados() {
-        return quantLocados;
-    }
-
-    public void setQuantLocados(int quantLocados) {
-        this.quantLocados = quantLocados;
-    }
     
     public String listarDados(){
         return "";
@@ -101,6 +90,11 @@ public class Livro extends Material{
         } catch (Exception ex){
             ex.printStackTrace();
         }                
+    }
+    
+    public List consultarMaterial(int id) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        return dao.consultarMaterial(0, id);
     }
     
     public List consultarMaterial(int valor, String nome){
@@ -137,5 +131,18 @@ public class Livro extends Material{
         } catch (Exception ex){
             ex.printStackTrace();
         } 
+    }
+
+    public List consultarMaterialID(int valor, int id) {
+        MaterialBibliograficoDAO dao = new MaterialBibliograficoDAO();
+        List resultado = null;
+        
+        try {
+            resultado = dao.consultarMaterialID(valor, id);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        return resultado;
     }
 }

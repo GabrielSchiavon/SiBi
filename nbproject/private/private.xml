@@ -3,10 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Meus%20Documentos/Desktop/CC/ISS/Trab1/SiBi-master/src/visao/MaterialBibliograficoEditaArtigo.java</file>
-            <file>file:/D:/Meus%20Documentos/Desktop/CC/ISS/Trab1/SiBi-master/src/visao/MaterialBibliograficoInterface.java</file>
-            <file>file:/D:/Meus%20Documentos/Desktop/CC/ISS/Trab1/SiBi-master/src/visao/MaterialBibliograficoProcura.java</file>
-            <file>file:/D:/Meus%20Documentos/Desktop/CC/ISS/Trab1/SiBi-master/src/visao/ViewGerarPDf.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/ReservaSolicita.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/dao/EmprestimoDAO.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/sibi/TelaInicial.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/visao/EmprestimoProcura.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/dao/MaterialBibliograficoDAO.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/Artigo.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/Emprestimo.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/Video.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/Periodico.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/Livro.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/controller/EmprestimoController.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/sibi/SiBi.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/controller/MaterialBibliograficoController.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/dao/ReservaDAO.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/SiBi/src/modelo/Material.java</file>
         </group>
     </open-files>
 </project-private>
