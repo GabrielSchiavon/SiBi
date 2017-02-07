@@ -241,6 +241,7 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
             }
 
             emprestimo.setIdMaterial(Integer.parseInt(jTextFieldIdMaterial.getText()));
+            emprestimo.setIdUsuario(Integer.parseInt(jTextFieldIdUsuario.getText()));
             emprestimo.setTipoMaterial(tipoMaterial);
             emprestimo.setDataEmprestimo(dataEmprestimo.getTime());
             emprestimo.setDataDevolucao(dataDevolucao.getTime());

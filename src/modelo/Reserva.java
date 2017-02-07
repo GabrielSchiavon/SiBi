@@ -98,8 +98,6 @@ public class Reserva implements Observer, Serializable {
                 reserva.getIdMaterial(), reserva.getIdUsuario(), empr).get(0);
         
         dao.cadastroReserva(reserva);
-        System.out.println("Id reserva: "+emprestimo.getId());
-        System.out.println("Id reserva: "+reserva.getId());
         emprestimo.addObserver(reserva);
     }
     
@@ -120,7 +118,6 @@ public class Reserva implements Observer, Serializable {
 
     @Override
     public void update(Observable obj, Object arg) {
-        System.out.println("entrouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
         PessoaController pessoaController = new PessoaController();
         MaterialBibliograficoController materialController = new MaterialBibliograficoController();
         webmailController mailController = new webmailController();
