@@ -14,8 +14,13 @@ public class ReservaController {
         reserva.realizarReserva(reserva);
     }
     
-    public boolean buscarReserva(int idMaterial, int idUsuario) {
+    public Reserva buscarReserva(int idMaterial, int idUsuario, int tipoMaterial) {
         Reserva reserva = new Reserva();
-        return reserva.verificarReserva(idMaterial, idUsuario);
+        return reserva.buscarReserva(idMaterial, idUsuario, tipoMaterial);
+    }
+
+    public boolean cancelarReserva(int idMaterial, int idUsuario, int tipoMaterial) {
+        Reserva reserva = buscarReserva(idMaterial, idUsuario, tipoMaterial);
+        return reserva.cancelarReserva(reserva);
     }
 }

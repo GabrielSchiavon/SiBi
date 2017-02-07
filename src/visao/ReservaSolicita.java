@@ -4,7 +4,6 @@
 package visao;
 
 import controller.MaterialBibliograficoController;
-import controller.PessoaController;
 import controller.ReservaController;
 import java.util.Calendar;
 import java.util.List;
@@ -15,12 +14,22 @@ import modelo.*;
  * @author Gabriel
  */
 public class ReservaSolicita extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ReservaSolicita
-     */
+    private int tipo;
+        
     public ReservaSolicita() {
         initComponents();
+    }
+    
+    /**
+     * Creates new form ReservaSolicita
+     * @param tipo
+     */
+    public ReservaSolicita(int tipo) {
+        this.tipo = tipo;
+        initComponents();
+        if (this.tipo == 1) {
+            jButtonSolicitar.setText("Excluir");
+        }
     }
 
     /**
@@ -39,7 +48,7 @@ public class ReservaSolicita extends javax.swing.JFrame {
         jTextFieldMaterial = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonSolicitar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -54,10 +63,10 @@ public class ReservaSolicita extends javax.swing.JFrame {
 
         jLabel4.setText("ID usuário:");
 
-        jButton1.setText("Solicitar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSolicitar.setText("Solicitar");
+        jButtonSolicitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSolicitarActionPerformed(evt);
             }
         });
 
@@ -95,7 +104,7 @@ public class ReservaSolicita extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -117,7 +126,7 @@ public class ReservaSolicita extends javax.swing.JFrame {
                     .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -125,144 +134,215 @@ public class ReservaSolicita extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
         MaterialBibliograficoController materialController = new MaterialBibliograficoController();
-        
+        ReservaController reservaController;
+        Reserva reserva;
         int tipoMaterial = jComboBox1.getSelectedIndex();
         int idMaterial = Integer.parseInt(jTextFieldMaterial.getText());
         int idUsuario = Integer.parseInt(jTextFieldUsuario.getText());
         
-        switch (tipoMaterial){
+        switch (tipo) {
             case 0:
-                Livro livro = new Livro();
-                List<Livro> listaLivro = materialController.consultarMaterial(livro, idMaterial);
-                if (listaLivro.isEmpty()) {
-                    NaoEncontrado naoEncontrado = new NaoEncontrado();
-                    naoEncontrado.setVisible(true);
-                } else {
-                    int nLocados = listaLivro.get(0).getQuantLocados();
-                    int nCadastrado = listaLivro.get(0).getQuantidadeInventario();
-                    
-                    if (nLocados < nCadastrado) {
-                        MaterialDisponivel disponivel = new MaterialDisponivel();
-                        disponivel.setVisible(true);
-                    } else {
-                        ReservaController reservaController = new ReservaController();
-                        //se nao possui reserva para aquele material
-                        if (reservaController.buscarReserva(idMaterial, idUsuario)) {
-                            Calendar data = Calendar.getInstance();
-                            Reserva reserva = new Reserva(idMaterial, idUsuario, data.getTime());
-                            reservaController.enviarReserva(reserva);
-
-                            ConfirmaOperacao confirma = new ConfirmaOperacao();
-                            confirma.setVisible(true);
-                            dispose();
+                switch (tipoMaterial) {
+                    case 0:
+                        Livro livro = new Livro();
+                        List<Livro> listaLivro = materialController.consultarMaterial(livro, idMaterial);
+                        if (listaLivro.isEmpty()) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
                         } else {
-                            ReservaExistente existe = new ReservaExistente();
-                            existe.setVisible(true);
+                            int nLocados = listaLivro.get(0).getQuantLocados();
+                            int nCadastrado = listaLivro.get(0).getQuantidadeInventario();
+
+                            if (nLocados < nCadastrado) {
+                                MaterialDisponivel disponivel = new MaterialDisponivel();
+                                disponivel.setVisible(true);
+                            } else {
+                                reservaController = new ReservaController();
+                                //se nao possui reserva para aquele material
+                                if (reservaController.buscarReserva(idMaterial, idUsuario, 0) == null) {
+                                    Calendar data = Calendar.getInstance();
+                                    reserva = new Reserva(idMaterial, idUsuario, data.getTime(), 0);
+                                    reservaController.enviarReserva(reserva);
+
+                                    ConfirmaOperacao confirma = new ConfirmaOperacao();
+                                    confirma.setVisible(true);
+                                    dispose();
+                                } else {
+                                    ReservaExistente existe = new ReservaExistente();
+                                    existe.setVisible(true);
+                                }
+                            }
                         }
-                    }
+                        break;
+
+                    case 1:
+                        Artigo artigo = new Artigo();
+                        List<Artigo> listaArtigo = materialController.consultarMaterial(artigo, idMaterial);
+                        if (listaArtigo.isEmpty()) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
+                        } else {
+                            int nLocados = listaArtigo.get(0).getQuantLocados();
+                            int nCadastrado = listaArtigo.get(0).getQuantidadeInventario();
+
+                            if (nLocados < nCadastrado) {
+                                MaterialDisponivel disponivel = new MaterialDisponivel();
+                                disponivel.setVisible(true);
+                            } else {
+                                reservaController = new ReservaController();
+                                //se nao possui reserva para aquele material
+                                if (reservaController.buscarReserva(idMaterial, idUsuario, 1) == null) {
+                                    Calendar data = Calendar.getInstance();
+                                    reserva = new Reserva(idMaterial, idUsuario, data.getTime(), 1);
+                                    reservaController.enviarReserva(reserva);
+
+                                    ConfirmaOperacao confirma = new ConfirmaOperacao();
+                                    confirma.setVisible(true);
+                                    dispose();
+                                } else {
+                                    ReservaExistente existe = new ReservaExistente();
+                                    existe.setVisible(true);
+                                }
+                            }
+                        }
+                        break;
+
+                    case 2:
+                        Periodico periodico = new Periodico();
+                        List<Periodico> listaPeriodico = materialController.consultarMaterial(periodico, idMaterial);
+                        if (listaPeriodico.isEmpty()) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
+                        } else {
+                            int nLocados = listaPeriodico.get(0).getQuantLocados();
+                            int nCadastrado = listaPeriodico.get(0).getQuantidadeInventario();
+
+                            if (nLocados < nCadastrado) {
+                                MaterialDisponivel disponivel = new MaterialDisponivel();
+                                disponivel.setVisible(true);
+                            } else {
+                                reservaController = new ReservaController();
+                                //se nao possui reserva para aquele material
+                                if (reservaController.buscarReserva(idMaterial, idUsuario, 2) == null) {
+                                    Calendar data = Calendar.getInstance();
+                                    reserva = new Reserva(idMaterial, idUsuario, data.getTime(), 2);
+                                    reservaController.enviarReserva(reserva);
+
+                                    ConfirmaOperacao confirma = new ConfirmaOperacao();
+                                    confirma.setVisible(true);
+                                    dispose();
+                                } else {
+                                    ReservaExistente existe = new ReservaExistente();
+                                    existe.setVisible(true);
+                                }
+                            }
+                        }
+                        break;
+
+                    case 3:
+                        Video video = new Video();
+                        List<Video> listaVideo = materialController.consultarMaterial(video, idMaterial);
+                        if (listaVideo.isEmpty()) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
+                        } else {
+                            int nLocados = listaVideo.get(0).getQuantLocados();
+                            int nCadastrado = listaVideo.get(0).getQuantidadeInventario();
+
+                            if (nLocados < nCadastrado) {
+                                MaterialDisponivel disponivel = new MaterialDisponivel();
+                                disponivel.setVisible(true);
+                            } else {
+                                reservaController = new ReservaController();
+                                //se nao possui reserva para aquele material
+                                if (reservaController.buscarReserva(idMaterial, idUsuario, 3) == null) {
+                                    Calendar data = Calendar.getInstance();
+                                    reserva = new Reserva(idMaterial, idUsuario, data.getTime(),3);
+                                    reservaController.enviarReserva(reserva);
+
+                                    ConfirmaOperacao confirma = new ConfirmaOperacao();
+                                    confirma.setVisible(true);
+                                    dispose();
+                                } else {
+                                    ReservaExistente existe = new ReservaExistente();
+                                    existe.setVisible(true);
+                                }
+                            }
+                        }
+                        break;
                 }
             break;
-            
             case 1:
-                Artigo artigo = new Artigo();
-                List<Artigo> listaArtigo = materialController.consultarMaterial(artigo, idMaterial);
-                if (listaArtigo.isEmpty()) {
-                    NaoEncontrado naoEncontrado = new NaoEncontrado();
-                    naoEncontrado.setVisible(true);
-                } else {
-                    int nLocados = listaArtigo.get(0).getQuantLocados();
-                    int nCadastrado = listaArtigo.get(0).getQuantidadeInventario();
-
-                    if (nLocados < nCadastrado) {
-                        MaterialDisponivel disponivel = new MaterialDisponivel();
-                        disponivel.setVisible(true);
-                    } else {
-                        ReservaController reservaController = new ReservaController();
-                        //se nao possui reserva para aquele material
-                        if (reservaController.buscarReserva(idMaterial, idUsuario)) {
-                            Calendar data = Calendar.getInstance();
-                            Reserva reserva = new Reserva(idMaterial, idUsuario, data.getTime());
-                            reservaController.enviarReserva(reserva);
-
-                            ConfirmaOperacao confirma = new ConfirmaOperacao();
-                            confirma.setVisible(true);
-                            dispose();
+                switch (tipoMaterial) {
+                    case 0:
+                        reservaController = new ReservaController();
+                        reserva = reservaController.buscarReserva(idMaterial, idUsuario, 0);
+                        if (reserva == null) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
                         } else {
-                            ReservaExistente existe = new ReservaExistente();
-                            existe.setVisible(true);
+                            reservaController = new ReservaController();
+                            if (reservaController.cancelarReserva(idMaterial, idUsuario, 0)) {
+                                ConfirmaOperacao confirma = new ConfirmaOperacao();
+                                confirma.setVisible(true);
+                                dispose();
+                            }
                         }
-                    }
-                }
-            break;
-            
-            case 2:
-                Periodico periodico = new Periodico();
-                List<Periodico> listaPeriodico = materialController.consultarMaterial(periodico, idMaterial);
-                if (listaPeriodico.isEmpty()) {
-                    NaoEncontrado naoEncontrado = new NaoEncontrado();
-                    naoEncontrado.setVisible(true);
-                } else {
-                    int nLocados = listaPeriodico.get(0).getQuantLocados();
-                    int nCadastrado = listaPeriodico.get(0).getQuantidadeInventario();
+                        break;
 
-                    if (nLocados < nCadastrado) {
-                        MaterialDisponivel disponivel = new MaterialDisponivel();
-                        disponivel.setVisible(true);
-                    } else {
-                        ReservaController reservaController = new ReservaController();
-                        //se nao possui reserva para aquele material
-                        if (reservaController.buscarReserva(idMaterial, idUsuario)) {
-                            Calendar data = Calendar.getInstance();
-                            Reserva reserva = new Reserva(idMaterial, idUsuario, data.getTime());
-                            reservaController.enviarReserva(reserva);
-
-                            ConfirmaOperacao confirma = new ConfirmaOperacao();
-                            confirma.setVisible(true);
-                            dispose();
+                    case 1:
+                        reservaController = new ReservaController();
+                        reserva = reservaController.buscarReserva(idMaterial, idUsuario, 1);
+                        if (reserva == null) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
                         } else {
-                            ReservaExistente existe = new ReservaExistente();
-                            existe.setVisible(true);
+                            reservaController = new ReservaController();
+                            if (reservaController.cancelarReserva(idMaterial, idUsuario, 1)) {
+                                ConfirmaOperacao confirma = new ConfirmaOperacao();
+                                confirma.setVisible(true);
+                                dispose();
+                            }
                         }
-                    }
-                }
-            break;
-            
-            case 3:
-                Video video = new Video();
-                List<Video> listaVideo = materialController.consultarMaterial(video, idMaterial);
-                if (listaVideo.isEmpty()) {
-                    NaoEncontrado naoEncontrado = new NaoEncontrado();
-                    naoEncontrado.setVisible(true);
-                } else {
-                    int nLocados = listaVideo.get(0).getQuantLocados();
-                    int nCadastrado = listaVideo.get(0).getQuantidadeInventario();
+                        break;
 
-                    if (nLocados < nCadastrado) {
-                        MaterialDisponivel disponivel = new MaterialDisponivel();
-                        disponivel.setVisible(true);
-                    } else {
-                        ReservaController reservaController = new ReservaController();
-                        //se nao possui reserva para aquele material
-                        if (reservaController.buscarReserva(idMaterial, idUsuario)) {
-                            Calendar data = Calendar.getInstance();
-                            Reserva reserva = new Reserva(idMaterial, idUsuario, data.getTime());
-                            reservaController.enviarReserva(reserva);
-
-                            ConfirmaOperacao confirma = new ConfirmaOperacao();
-                            confirma.setVisible(true);
-                            dispose();
+                    case 2:
+                        reservaController = new ReservaController();
+                        reserva = reservaController.buscarReserva(idMaterial, idUsuario, 2);
+                        if (reserva == null) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
                         } else {
-                            ReservaExistente existe = new ReservaExistente();
-                            existe.setVisible(true);
+                            reservaController = new ReservaController();
+                            if (reservaController.cancelarReserva(idMaterial, idUsuario, 2)) {
+                                ConfirmaOperacao confirma = new ConfirmaOperacao();
+                                confirma.setVisible(true);
+                                dispose();
+                            }
                         }
-                    }
+                        break;
+
+                    case 3:
+                        reservaController = new ReservaController();
+                        reserva = reservaController.buscarReserva(idMaterial, idUsuario, 3);
+                        if (reserva == null) {
+                            NaoEncontrado naoEncontrado = new NaoEncontrado();
+                            naoEncontrado.setVisible(true);
+                        } else {
+                            reservaController = new ReservaController();
+                            if (reservaController.cancelarReserva(idMaterial, idUsuario, 3)) {
+                                ConfirmaOperacao confirma = new ConfirmaOperacao();
+                                confirma.setVisible(true);
+                                dispose();
+                            }
+                        }
+                        break;
                 }
-            break;
+                break;
         }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonSolicitarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
@@ -304,8 +384,8 @@ public class ReservaSolicita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonSolicitar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

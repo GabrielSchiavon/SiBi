@@ -18,5 +18,6 @@
     <mapping class="modelo.Pessoa"/>
     <mapping class="modelo.Video"/>
     <mapping class="modelo.Emprestimo"/>
+    <mapping class="modelo.Reserva"/>
   </session-factory>
 </hibernate-configuration>

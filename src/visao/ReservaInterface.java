@@ -90,12 +90,13 @@ public class ReservaInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButtonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroActionPerformed
-        ReservaSolicita solicita = new ReservaSolicita();
+        ReservaSolicita solicita = new ReservaSolicita(0);
         solicita.setVisible(true);
     }//GEN-LAST:event_jButtonCadastroActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        // TODO add your handling code here:
+        ReservaSolicita cancela = new ReservaSolicita(1);        
+        cancela.setVisible(true);
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     /**
