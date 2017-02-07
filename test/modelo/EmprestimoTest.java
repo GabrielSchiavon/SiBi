@@ -4,6 +4,7 @@
 package modelo;
 
 import controller.EmprestimoController;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import org.junit.After;
@@ -43,16 +44,23 @@ public class EmprestimoTest {
     /**
      * Test of cadastro method, of class Emprestimo.
      */
-    /*
     @Test
     public void testCadastro() {
-        System.out.println("cadastro");
-        Emprestimo emprestimo = null;
-        Emprestimo instance = new Emprestimo();
-        instance.cadastro(emprestimo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        EmprestimoController controller = new EmprestimoController();
+        
+        Calendar dataDevolucao = Calendar.getInstance();
+        Calendar dataEmprestimo = Calendar.getInstance();
+        dataDevolucao.add(Calendar.DAY_OF_MONTH, 7);
+        
+        emprestimo.setId(1);
+        emprestimo.setDataDevolucao(dataDevolucao.getTime());
+        emprestimo.setDataEmprestimo(dataEmprestimo.getTime());
+        emprestimo.setEstado(true);
+        emprestimo.setIdMaterial(65536);
+        emprestimo.setIdUsuario(1);
+        emprestimo.setTipoMaterial(0);
+        controller.emprestimoCadastro(emprestimo);
+    }
 
     /**
      * Test of consulta method, of class Emprestimo.
@@ -61,47 +69,8 @@ public class EmprestimoTest {
     public void testConsulta() {
         Emprestimo emp = new Emprestimo();
         EmprestimoController controller = new EmprestimoController();
-        Emprestimo emprestimo = (Emprestimo) controller.consultarEmprestimo(65536, 1, emp).get(0);
+        List<Emprestimo> lista = controller.consultarEmprestimo(65536, 1, emp);
+        Emprestimo emprestimo = lista.get(0);
         assertEquals(917504, emprestimo.getId());
-    }
-
-    /**
-     * Test of realizarDevolucao method, of class Emprestimo.
-     */
-    /*
-    @Test
-    public void testRealizarDevolucao() {
-        System.out.println("realizarDevolucao");
-        Emprestimo emprestimo = null;
-        Emprestimo instance = new Emprestimo();
-        instance.realizarDevolucao(emprestimo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-*/
-    /**
-     * Test of notificar method, of class Emprestimo.
-     */
-/*    @Test
-    public void testNotificar() {
-        System.out.println("notificar");
-        Emprestimo instance = new Emprestimo();
-        instance.notificar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-*/
-    /**
-     * Test of realizarRenovacao method, of class Emprestimo.
-     */
-/*    @Test
-    public void testRealizarRenovacao() {
-        System.out.println("realizarRenovacao");
-        Emprestimo emprestimo = null;
-        Emprestimo instance = new Emprestimo();
-        instance.realizarRenovacao(emprestimo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-*/    
+    } 
 }
