@@ -27,7 +27,7 @@ public class Usuario extends Pessoa{
     
     public Usuario(String nome, int cpf, int rg, Calendar dataNasc,
             int cep, String endereço, String bairro, int numero, String complemento,
-            String email, String senha, int sexo){
+            String email, String senha, int sexo, boolean status){
     super(nome, cpf, rg, dataNasc, cep, endereço, bairro, numero, complemento, email, senha, sexo);
     this.status = status;
     }
@@ -82,15 +82,12 @@ public class Usuario extends Pessoa{
     
     public Usuario buscarUsuario(int valor, int id) {
         PessoaDAO dao = new PessoaDAO();
-        List resultado = null;
-
-        try {
-            resultado = dao.buscarPessoa(valor, id);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        List<Usuario> resultado = dao.buscarPessoa(valor, id);
+        if (resultado.isEmpty()) {
+            return null;
+        } else {
+            return (Usuario) resultado.get(0);
         }
-
-        return (Usuario) resultado.get(0);
     }    
         
     public void editarUsuario(Usuario usuario){

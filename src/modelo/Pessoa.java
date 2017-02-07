@@ -17,7 +17,7 @@ import javax.persistence.*;
 public abstract class Pessoa implements Serializable {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
     @Column(nullable = false)
     private String nome;

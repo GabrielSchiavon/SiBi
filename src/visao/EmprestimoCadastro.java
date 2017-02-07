@@ -63,6 +63,7 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
         jTextFieldIdMaterial = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldIdUsuario = new javax.swing.JTextField();
+        jButtonID = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Emprestimo de Material Bibliografico");
@@ -74,6 +75,7 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
 
         jLabel2.setText("Nome do Usuário:");
 
+        jTextFieldNomeUsuario.setEditable(false);
         jTextFieldNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeUsuarioActionPerformed(evt);
@@ -118,10 +120,16 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
 
         jLabel6.setText("ID:");
 
-        jTextFieldIdUsuario.setEditable(false);
         jTextFieldIdUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIdUsuarioActionPerformed(evt);
+            }
+        });
+
+        jButtonID.setText("Procurar ID");
+        jButtonID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIDActionPerformed(evt);
             }
         });
 
@@ -145,11 +153,9 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
                                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(58, 58, 58)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jFormattedTextFieldDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jFormattedTextFieldDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                                .addGap(57, 57, 57)
                                 .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +177,9 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
                                 .addGap(20, 20, 20)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextFieldNomeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
-                            .addComponent(jTextFieldNomeMaterial))))
+                            .addComponent(jTextFieldNomeMaterial))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -188,7 +196,8 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jTextFieldNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextFieldIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -220,28 +229,32 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
         EmprestimoController controller = new EmprestimoController();
         Emprestimo emprestimo = new Emprestimo();
         
-        try {
-            dataEmprestimo.setTime(formato.parse(jTextFieldDataEmprestimo.getText()));
-            dataDevolucao.setTime(formato.parse(jFormattedTextFieldDataDevolucao.getText()));
-        } catch (ParseException ex) {
-            Logger.getLogger(EmprestimoCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        if (jTextFieldNomeUsuario.getText().equals("")){
+            preencherCampos preenche = new preencherCampos();
+            preenche.setVisible(true);
+        } else{
+            try {
+                dataEmprestimo.setTime(formato.parse(jTextFieldDataEmprestimo.getText()));
+                dataDevolucao.setTime(formato.parse(jFormattedTextFieldDataDevolucao.getText()));
+            } catch (ParseException ex) {
+                Logger.getLogger(EmprestimoCadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            emprestimo.setIdMaterial(Integer.parseInt(jTextFieldIdMaterial.getText()));
+            emprestimo.setTipoMaterial(tipoMaterial);
+            emprestimo.setDataEmprestimo(dataEmprestimo.getTime());
+            emprestimo.setDataDevolucao(dataDevolucao.getTime());
+            emprestimo.setEstado(true);
+
+            try {
+                controller.emprestimoCadastro(emprestimo);
+                dispose();
+                ConfirmaOperacao confirma = new ConfirmaOperacao();
+                confirma.setVisible(true);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
-        
-        emprestimo.setIdMaterial(Integer.parseInt(jTextFieldIdMaterial.getText()));
-        emprestimo.setTipoMaterial(tipoMaterial);
-        emprestimo.setDataEmprestimo(dataEmprestimo.getTime());
-        emprestimo.setDataDevolucao(dataDevolucao.getTime());
-        emprestimo.setEstado(true);
-        
-        try {
-            controller.emprestimoCadastro(emprestimo);
-            dispose();
-            ConfirmaOperacao confirma = new ConfirmaOperacao();
-            confirma.setVisible(true);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jTextFieldIdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdUsuarioActionPerformed
@@ -251,6 +264,19 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
         //PessoaController usuarioController = new PessoaController();
         //usuarioController.buscarPessoa(0, jTextFieldNomeUsuario.getText());
     }//GEN-LAST:event_jTextFieldNomeUsuarioActionPerformed
+
+    private void jButtonIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIDActionPerformed
+        PessoaController controller = new PessoaController();
+        int id = Integer.parseInt(jTextFieldIdUsuario.getText());
+        System.out.println("ID = "+id);
+        Usuario usuario = controller.buscarUsuario(0, id);
+        if (usuario == null) {
+            NaoEncontrado naoEncontrado = new NaoEncontrado();
+            naoEncontrado.setVisible(true);
+        } else {
+            jTextFieldNomeUsuario.setText(usuario.getNome());
+        }
+    }//GEN-LAST:event_jButtonIDActionPerformed
 
     public void setCampos(Livro livro) {
         DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -344,6 +370,7 @@ public class EmprestimoCadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonID;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JFormattedTextField jFormattedTextFieldDataDevolucao;
     private javax.swing.JLabel jLabel1;

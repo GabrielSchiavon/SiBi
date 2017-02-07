@@ -15,9 +15,10 @@
     <mapping class="modelo.Livro"/>
     <mapping class="modelo.Material"/>
     <mapping class="modelo.Periodico"/>
-    <mapping class="modelo.Pessoa"/>
     <mapping class="modelo.Video"/>
     <mapping class="modelo.Emprestimo"/>
     <mapping class="modelo.Reserva"/>
+    <mapping class="modelo.Usuario"/>
+    <mapping class="modelo.Atendente"/>
   </session-factory>
 </hibernate-configuration>

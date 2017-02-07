@@ -101,12 +101,17 @@ public class PessoaDAO {
         Criteria crit;
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
-
+        System.out.println("ID do usuario recebido = "+ id);
         switch (valor){
             case 0:
                 crit = session.createCriteria(Usuario.class);
                 crit.add(Restrictions.eq("id", id));
                 List<Usuario> resultadoUsuario = crit.list();
+                if (resultadoUsuario.isEmpty()) {
+                    System.out.println("VAIZIIIIIIO");
+                } else {
+                    System.out.println("Id = " + resultadoUsuario.get(0).getNome());
+                }
                 return resultadoUsuario;
                 
             case 1:

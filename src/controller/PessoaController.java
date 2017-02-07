@@ -51,7 +51,8 @@ public class PessoaController {
     }
     
     public Usuario buscarUsuario(int valor, int id){
-        return usuario.buscarUsuario(valor, id);
+        Usuario user = new Usuario();
+        return user.buscarUsuario(valor, id);
     }
         
     public void editarUsuario(Usuario usuario) {
