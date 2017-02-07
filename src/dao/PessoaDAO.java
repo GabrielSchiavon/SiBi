@@ -97,6 +97,40 @@ public class PessoaDAO {
         return null;    
     }
     
+    public List buscarPessoa(int valor, int id) {
+        Criteria crit;
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session session = sf.openSession();
+
+        switch (valor){
+            case 0:
+                crit = session.createCriteria(Usuario.class);
+                crit.add(Restrictions.eq("id", id));
+                List<Usuario> resultadoUsuario = crit.list();
+                return resultadoUsuario;
+                
+            case 1:
+                crit = session.createCriteria(Gerente.class);
+                crit.add(Restrictions.eq("id", id));
+                List<Gerente> resultadoGerente = crit.list();
+                return resultadoGerente;
+            case 3:
+                crit = session.createCriteria(Biblioteconomista.class);
+                crit.add(Restrictions.eq("id", id));
+                List<Biblioteconomista> resultadoBiblioteconomista = crit.list();
+                return resultadoBiblioteconomista;
+            case 4:
+                crit = session.createCriteria(Atendente.class);
+                crit.add(Restrictions.eq("id", id));
+                List<Atendente> resultadoAtendente = crit.list();
+                return resultadoAtendente;                
+        }
+
+        session.flush();
+        session.close();
+        return null;    
+    }
+    
     public void editarUsuario(Usuario usuario) {
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();

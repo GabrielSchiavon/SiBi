@@ -79,7 +79,19 @@ public class Usuario extends Pessoa{
         
         return resultado;
     }
-        
+    
+    public Usuario buscarUsuario(int valor, int id) {
+        PessoaDAO dao = new PessoaDAO();
+        List resultado = null;
+
+        try {
+            resultado = dao.buscarPessoa(valor, id);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return (Usuario) resultado.get(0);
+    }    
         
     public void editarUsuario(Usuario usuario){
         PessoaDAO dao = new PessoaDAO();

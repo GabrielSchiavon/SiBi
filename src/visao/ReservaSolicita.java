@@ -3,6 +3,7 @@
  */
 package visao;
 
+import controller.EmprestimoController;
 import controller.MaterialBibliograficoController;
 import controller.ReservaController;
 import java.util.Calendar;
@@ -137,12 +138,15 @@ public class ReservaSolicita extends javax.swing.JFrame {
     private void jButtonSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarActionPerformed
         MaterialBibliograficoController materialController = new MaterialBibliograficoController();
         ReservaController reservaController;
+        EmprestimoController emprestimoController = new EmprestimoController();
+        
         Reserva reserva;
         int tipoMaterial = jComboBox1.getSelectedIndex();
         int idMaterial = Integer.parseInt(jTextFieldMaterial.getText());
         int idUsuario = Integer.parseInt(jTextFieldUsuario.getText());
         
         switch (tipo) {
+            //Solicitar Reserva
             case 0:
                 switch (tipoMaterial) {
                     case 0:
@@ -165,7 +169,7 @@ public class ReservaSolicita extends javax.swing.JFrame {
                                     Calendar data = Calendar.getInstance();
                                     reserva = new Reserva(idMaterial, idUsuario, data.getTime(), 0);
                                     reservaController.enviarReserva(reserva);
-
+                                    
                                     ConfirmaOperacao confirma = new ConfirmaOperacao();
                                     confirma.setVisible(true);
                                     dispose();
@@ -274,6 +278,8 @@ public class ReservaSolicita extends javax.swing.JFrame {
                         break;
                 }
             break;
+            
+            //Cancelar reserva
             case 1:
                 switch (tipoMaterial) {
                     case 0:

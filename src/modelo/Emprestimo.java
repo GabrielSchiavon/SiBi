@@ -7,6 +7,7 @@ import dao.EmprestimoDAO;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Observable;
 import javax.persistence.*;
 
 /**
@@ -15,7 +16,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "emprestimo")
-public class Emprestimo implements Serializable{
+public class Emprestimo extends Observable implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -111,9 +112,19 @@ public class Emprestimo implements Serializable{
     
     public void realizarDevolucao(Emprestimo emprestimo) {
         EmprestimoDAO dao = new EmprestimoDAO();
+        
+        emprestimo.setEstado(false);
         dao.devolucao(emprestimo);
+        this.notificar();
+        System.out.println("Enviado");
     }
 
+    public void notificar(){
+        setChanged();
+        notifyObservers("notificar");
+    }
+    
+    
     public void realizarRenovacao(Emprestimo emprestimo) {
         EmprestimoDAO dao = new EmprestimoDAO();
         dao.renovacao(emprestimo);

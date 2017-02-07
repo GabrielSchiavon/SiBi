@@ -3,9 +3,15 @@
  */
 package modelo;
 
+import controller.EmprestimoController;
+import controller.MaterialBibliograficoController;
+import controller.PessoaController;
+import controller.webmailController;
 import dao.ReservaDAO;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Observable;
+import java.util.Observer;
 import javax.persistence.*;
 
 /**
@@ -14,7 +20,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "reserva")
-public class Reserva implements Serializable {
+public class Reserva implements Observer, Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -86,7 +92,15 @@ public class Reserva implements Serializable {
     
     public void realizarReserva(Reserva reserva) {
         ReservaDAO dao = new ReservaDAO();
+        EmprestimoController emprestimoController = new EmprestimoController();
+        Emprestimo empr = new Emprestimo();
+        Emprestimo emprestimo = (Emprestimo) emprestimoController.consultarEmprestimo(
+                reserva.getIdMaterial(), reserva.getIdUsuario(), empr).get(0);
+        
         dao.cadastroReserva(reserva);
+        System.out.println("Id reserva: "+emprestimo.getId());
+        System.out.println("Id reserva: "+reserva.getId());
+        emprestimo.addObserver(reserva);
     }
     
     public Reserva buscarReserva(int idMaterial, int idUsuario, int tipoMaterial){
@@ -102,5 +116,50 @@ public class Reserva implements Serializable {
     public boolean cancelarReserva(Reserva reserva) {
         ReservaDAO dao = new ReservaDAO();
         return dao.cancelarReserva(reserva);
+    }
+
+    @Override
+    public void update(Observable obj, Object arg) {
+        System.out.println("entrouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+        PessoaController pessoaController = new PessoaController();
+        MaterialBibliograficoController materialController = new MaterialBibliograficoController();
+        webmailController mailController = new webmailController();
+        Emprestimo emprestimo = (Emprestimo)obj;
+        String valor = String.valueOf(arg);
+        
+        if (valor.equals("notificar")) {
+            Usuario usuario = pessoaController.buscarUsuario(0, emprestimo.getIdUsuario());
+            String email = usuario.getEmail();
+            String nomeMaterial = "";
+            switch (emprestimo.getTipoMaterial()) {
+                case 0:
+                    Livro livro = new Livro();
+                    livro = (Livro) materialController.consultarMaterial(livro, 
+                            emprestimo.getIdMaterial()).get(0);
+                    nomeMaterial = livro.getNome();
+                    break;
+                case 1:
+                    Artigo artigo = new Artigo();
+                    artigo = (Artigo) materialController.consultarMaterial(artigo, 
+                            emprestimo.getIdMaterial()).get(0);
+                    nomeMaterial = artigo.getNome();
+                    break;
+                
+                case 2:
+                    Periodico periodico = new Periodico();
+                    periodico = (Periodico) materialController.consultarMaterial(periodico, 
+                            emprestimo.getIdMaterial()).get(0);
+                    nomeMaterial = periodico.getNome();
+                    break;
+                
+                case 3:
+                    Video video = new Video();
+                    video = (Video) materialController.consultarMaterial(video, 
+                            emprestimo.getIdMaterial()).get(0);
+                    nomeMaterial = video.getNome();
+                    break;
+            }
+            mailController.enviarEmail(email, nomeMaterial);
+        }
     }
 }

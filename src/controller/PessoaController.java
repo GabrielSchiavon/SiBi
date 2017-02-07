@@ -49,6 +49,10 @@ public class PessoaController {
     public List buscarPessoa(int valor, String nome){
         return usuario.buscarPessoa(valor, nome);
     }
+    
+    public Usuario buscarUsuario(int valor, int id){
+        return usuario.buscarUsuario(valor, id);
+    }
         
     public void editarUsuario(Usuario usuario) {
         usuario.editarUsuario(usuario);

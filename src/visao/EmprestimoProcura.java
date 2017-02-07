@@ -139,7 +139,6 @@ public class EmprestimoProcura extends javax.swing.JFrame {
             switch (opcao){
                 case 0:  //Devolução
                     Emprestimo emp = listaEmprestimo.get(0);
-                    emp.setEstado(false);
                     emprestimoController.enviarDevolucao(emp);
 
                     switch (emp.getTipoMaterial()) {
